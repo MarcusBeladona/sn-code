@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+	--font-sans: 'Inter', sans-serif;
+	--animate-enter: enter 300ms ease-in-out;
+	@keyframes enter {
+		0% {
+			opacity: 0;
+			transform: translateY(24px);
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+	--animate-appear: appear 300ms ease-in;
+	@keyframes appear {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+}
+
+@layer base {
+	main {
+		@apply flex flex-col gap-24 max-w-5xl mx-auto px-6 overflow-clip;
+	}
+	section {
+		@apply animate-enter;
+	}
+	p {
+		@apply text-zinc-700 leading-tight text-pretty;
+	}
+	button, .button {
+		@apply flex w-fit h-10 items-center justify-center gap-1 rounded-full px-4 py-2 border border-zinc-200 text-zinc-900 transition duration-300 hover:border-zinc-900 cursor-pointer;
+	}
+	h1, h2, h3, h4, h5, h6 {
+		@apply text-zinc-900 font-medium leading-tight;
+	}
+	h1 {
+		@apply text-6xl;
+	}
+	h2 {
+		@apply text-5xl;
+	}
+	h3 {
+		@apply text-4xl;
+	}
+	h4 {
+		@apply text-3xl;
+	}
+	h5 {
+		@apply text-2xl;
+	}
+	h6 {
+		@apply text-xl;
+	}
+}
+
+/* Page Transitions */
+
+.page-enter-active,
+.page-leave-active {
+	transition: all 150ms ease-out;
+}
+.page-enter-from,
+.page-leave-to {
+	opacity: 100;
+}
+
+html {
+	@apply scroll-smooth;
+}
