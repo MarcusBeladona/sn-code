@@ -27,8 +27,11 @@
 }
 
 @layer base {
+	#__nuxt {
+		@apply max-w-5xl mx-auto
+	}
 	main {
-		@apply flex flex-col gap-24 max-w-5xl mx-auto px-6 overflow-clip;
+		@apply flex flex-col gap-24 px-6 overflow-clip;
 	}
 	section {
 		@apply animate-enter;

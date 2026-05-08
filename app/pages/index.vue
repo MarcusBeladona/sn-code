@@ -1,16 +1,11 @@
 <script setup>
-	const sanity = useSanity()
-
 	const query = groq`*[_type == "case"]`
-
-	const { data: cases } = await useAsyncData('cases', () =>
-		sanity.fetch(query)
-	)
+	const { data: cases } = await useSanityQuery(query)
+	console.log(cases.value)
 </script>
 
 <template>
 	<main>
-		<AppHeader />
 		<!-- Presentation -->
 		<section class="flex flex-col gap-6">
 			<h2 class="text-4xl md:text-5xl">Olá! Eu sou Marcus Beladona, Designer Digital atualmente em Fortaleza-CE.
@@ -25,12 +20,11 @@
 			</span>
 		</section>
 		<!-- Articles Grid -->
-		<section class="flex flex-col gap-6 md:grid md:grid-cols-2">
-			<AppArticleCard
+		<section v-if="cases.length" class="flex flex-col gap-6 md:grid md:grid-cols-2">
+			<VueArticleCard
 			v-for="item in cases"
 			:key="item._id"
 			:article="item" />
 		</section>
-		<AppFooter />
 	</main>
 </template>

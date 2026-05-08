@@ -1,12 +1,8 @@
 <script setup>
-	const route = useRoute()
-
-	const query = groq`
-  *[_type == "case" && slug.current == $slug][0]`
-
-	const { data: story, refresh } = await useSanityQuery(query, {
-		slug: route.params.slug
-	})
+	const slug = useRoute().params.slug
+	const query = groq`*[_type == "case" && slug.current == $slug][0]`
+	const { data: story } = await useSanityQuery(query, { slug: slug })
+	console.log(story.value);
 </script>
 
 <template>
@@ -19,9 +15,11 @@
 				<p v-for="tagName in story.tags" :key="tagName" class="pr-1 text-xs uppercase tracking-wider">
 					{{ tagName }}</p>
 			</span>
+
 			<SanityImage :asset-id="story.thumb.asset._ref"
 			class="md:col-span-full rounded-2xl md:rounded-3xl w-full" />
-			<SanityContent :value="story.body" />
+
+			<VueBody :body="story.body" />
 		</section>
 		<AppFooter />
 	</main>

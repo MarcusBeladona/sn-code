@@ -17,13 +17,6 @@ export default defineNuxtConfig({
 	sanity: {
 		projectId: 'zt4joqnt',
 		dataset: 'production',
-		useCdn: false,
-		withCredentials: true
-	},
-	runtimeConfig: {
-		sanity: {
-			token: process.env.NUXT_SANITY_TOKEN,
-		},
 	},
 	image: {
 		sanity: {
