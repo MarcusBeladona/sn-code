@@ -36,10 +36,10 @@
 							<Icon name="ph:copy" size="20" />
 						</button>
 					</span>
-					<NuxtLink :to="`mailto:${email}`" class="button-primary">
+					<a :href="`mailto:${email}`" class="button-primary">
 						<Icon name="ph:arrow-square-out" size="20" />
 						Abrir
-					</NuxtLink>
+					</a>
 				</span>
 			</span>
 			<!-- Image Container -->
@@ -51,10 +51,10 @@
 		<span class="flex flex-wrap justify-center md:justify-between items-center gap-4 pb-4 w-full">
 			<p>{{ new Date().getFullYear() }} &copy; Marcus Beladona&trade;</p>
 			<span class="flex lg:-mr-4">
-				<NuxtLink v-for="link in socialLinks" :key="link.url" :to="link.url" target="_blank" class="flex w-fit h-10 items-center justify-center gap-1 px-4 py-2 text-zinc-700 hover:text-zinc-900">
+				<a v-for="link in socialLinks" :key="link.url" :href="link.url" target="_blank" rel="noopener noreferrer" class="flex w-fit h-10 items-center justify-center gap-1 px-4 py-2 text-zinc-700 hover:text-zinc-900">
 					<Icon name="ph:arrow-square-out" size="20" />
 					{{ link.label }}
-				</NuxtLink>
+				</a>
 			</span>
 		</span>
 	</footer>

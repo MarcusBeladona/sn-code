@@ -1,5 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import tailwindcss from "@tailwindcss/vite";
+
+const sanityProjectId = 'zt4joqnt'
+const sanityDataset = 'production'
+
 export default defineNuxtConfig({
 	compatibilityDate: '2025-07-15',
 	devtools: { enabled: false },
@@ -15,13 +19,13 @@ export default defineNuxtConfig({
 		]
 	},
 	sanity: {
-		projectId: 'zt4joqnt',
-		dataset: 'production',
+		projectId: sanityProjectId,
+		dataset: sanityDataset,
 	},
 	image: {
 		sanity: {
-			projectId: 'zt4joqnt',
-			dataset: 'production'
+			projectId: sanityProjectId,
+			dataset: sanityDataset,
 		},
-	}
+	},
 })

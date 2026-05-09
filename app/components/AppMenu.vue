@@ -4,19 +4,9 @@
 			type: Boolean,
 			required: true
 		},
-		onClose: {
-			type: Function,
-			required: true
-		},
-		onGoAbout: {
-			type: Function,
-			required: true
-		},
-		onGoContact: {
-			type: Function,
-			required: true
-		}
 	})
+
+	const emit = defineEmits(['close', 'contact'])
 
 	const panelId = 'mobile-menu-panel'
 	let previouslyFocused = null
@@ -56,7 +46,7 @@
 
 	const onKeydown = (e) => {
 		if (!props.open) return
-		if (e.key === 'Escape') props.onClose()
+		if (e.key === 'Escape') emit('close')
 	}
 
 	onMounted(() => {
@@ -70,24 +60,31 @@
 
 <template>
 	<Teleport to="body">
-		<div v-if="open">
-			<!-- Backdrop -->
-			<Transition name="mobileMenuBackdrop" appear>
-				<div role="presentation" @click.self="onClose" class="fixed inset-0 bg-black/30 z-40" />
-			</Transition>
-
-			<!-- Panel -->
-			<Transition name="mobileMenuPanel" appear>
-				<nav :id="panelId" role="dialog" aria-modal="true" class="top-22 right-0 z-50 fixed flex flex-col justify-center items-center gap-4 bg-zinc-100 mx-6 p-4 border border-zinc-200 rounded-2xl w-fit h-fit">
-					<NuxtLink to="/about" @click="onGoAbout" class="w-full button-secondary">
-						Sobre
-					</NuxtLink>
-					<button type="button" @click="onGoContact" class="bg-zinc-900 hover:bg-zinc-100 px-5 py-2 border-zinc-900 hover:border-zinc-200 rounded-full text-white hover:text-zinc-900">
-						Contato
-					</button>
-				</nav>
-			</Transition>
-		</div>
+		<!-- v-if must be on each Transition's root so leave hooks run before unmount -->
+		<Transition name="mobileMenuBackdrop" appear>
+			<div
+				v-if="open"
+				role="presentation"
+				@click.self="emit('close')"
+				class="fixed inset-0 bg-black/30 z-40"
+			/>
+		</Transition>
+		<Transition name="mobileMenuPanel" appear>
+			<nav
+				v-if="open"
+				:id="panelId"
+				role="dialog"
+				aria-modal="true"
+				class="top-22 right-0 z-50 fixed flex flex-col justify-center items-center gap-4 bg-zinc-100 mx-6 p-4 border border-zinc-200 rounded-3xl w-fit h-fit"
+			>
+				<NuxtLink to="/about" @click="emit('close')" class="w-full button-secondary">
+					Sobre
+				</NuxtLink>
+				<button type="button" class="button-primary w-full" @click="emit('contact')">
+					Contato
+				</button>
+			</nav>
+		</Transition>
 	</Teleport>
 </template>
 

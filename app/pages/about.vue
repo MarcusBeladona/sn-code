@@ -59,12 +59,17 @@
 			<NuxtImg src="img/clumsy-opendoodles.svg" class="order-first md:order-last col-span-5 object-cover" />
 		</section>
 
-		<section class="flex md:flex-row flex-col gap-6">
-			<span v-for="specialty in specialties" :key="specialty.title" class="flex flex-col gap-2 bg-zinc-100 p-4 border border-white rounded-2xl ring ring-zinc-200">
-				<Icon :name="specialty.icon" size="32" class="text-zinc-900" />
-				<h6>{{ specialty.title }}</h6>
-				<p>{{ specialty.description }}</p>
-			</span>
+		<section class="md:grid grid-cols-12 w-full">
+			<div class="col-span-full flex flex-col gap-6 md:flex-row">
+				<VueCard
+					v-for="item in specialties"
+					:key="item.title"
+					:icon="item.icon"
+					:title="item.title"
+					:description="item.description"
+					class="flex-1"
+				/>
+			</div>
 		</section>
 
 		<section class="flex md:flex-row flex-col gap-24 md:gap-6">

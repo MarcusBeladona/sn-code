@@ -13,8 +13,8 @@
 				<p class="flex justify-center text-zinc-900 items-center bg-zinc-100 px-4 border border-zinc-200 rounded-full h-10">Product Designer</p>
 			</span>
 		</section>
-		<section v-if="cases.length" class="flex flex-col gap-6 md:grid md:grid-cols-2">
-			<NuxtLink v-for="item in cases" :to="`/cases/${item.slug.current}`" :key="item._id" class="flex flex-col flex-1 bg-zinc-100 p-0 border border-white rounded-3xl ring ring-zinc-200 hover:ring-zinc-300 h-fit transition hover:-translate-y-1 animate-enter duration-300 cursor-pointer">
+		<section v-if="caseList.length" class="flex flex-col gap-6 md:grid md:grid-cols-2">
+			<NuxtLink v-for="item in caseList" :to="`/cases/${item.slug.current}`" :key="item._id" class="flex flex-col flex-1 bg-zinc-100 p-0 border border-white rounded-3xl ring ring-zinc-200 hover:ring-zinc-300 h-fit transition hover:-translate-y-1 animate-enter duration-300 cursor-pointer">
 				<SanityImage :asset-id="item.thumb.asset._ref" class="border border-zinc-200 rounded-[23px] w-full h-auto object-cover aspect-4/3" />
 				<section class="flex flex-col gap-2 p-4">
 					<h6 class="line-clamp-1">{{ item.title }}</h6>

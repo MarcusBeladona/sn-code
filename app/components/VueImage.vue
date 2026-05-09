@@ -6,13 +6,60 @@
 		},
 		caption: {
 			type: String,
+		},
+		isSpanFull: {
+			type: Boolean,
+			default: false
+		},
+		hasContainer: {
+			type: Boolean,
+			default: false
+		},
+		hasBorder: {
+			type: Boolean,
+			default: false
 		}
 	})
+	const imageView = ref(false)
+	const toggleImageView = () => {
+		console.log('clicked');
+		imageView.value = !imageView.value
+	}
 </script>
 
 <template>
-	<figure>
-		<SanityImage :asset-id="assetId" />
-		<figcaption>{{ caption }}</figcaption>
+	<figure :class="isSpanFull ? 'col-span-full' : 'col-span-8 col-start-3'" class="flex flex-col gap-2">
+		<section :class="hasContainer ? 'flex gap-4 flex-col bg-zinc-100 p-4 rounded-3xl border border-white ring ring-zinc-200' : ''" class="rounded-3xl">
+			<span v-if="hasContainer" class="flex gap-2">
+				<Icon name="ph:circle-fill" size="20" class="text-zinc-200" />
+				<Icon name="ph:circle-fill" size="20" class="text-zinc-200" />
+				<Icon name="ph:circle-fill" size="20" class="text-zinc-200" />
+			</span>
+			<SanityImage @click="toggleImageView" :asset-id="assetId" :class="[
+				hasBorder ? 'border border-white ring ring-zinc-200' : '',
+				hasContainer ? 'rounded-2xl' : 'rounded-3xl'
+			]" class="cursor-zoom-in transition hover:scale-102" />
+		</section>
+		<figcaption v-if="caption" class="text-center italic">{{ caption }}</figcaption>
+		<!-- Image Fullscreen Modal -->
+		<Transition name="fade" appear>
+			<div v-if="imageView" @click="toggleImageView" class="fixed inset-0 z-50 bg-black/66 flex p-6 h-full w-full justify-center items-center cursor-zoom-out transition duration-200">
+				<SanityImage :asset-id="assetId" class="w-fit h-full max-h-full max-w-full object-scale-down rounded-3xl animate-grow" />
+			</div>
+		</Transition>
 	</figure>
 </template>
+
+<style scoped>
+	@reference "@/assets/css/main.css";
+
+	.fade-enter-active,
+	.fade-leave-active {
+		transition: all 300ms ease;
+	}
+
+	.fade-enter-from,
+	.fade-leave-to {
+		opacity: 0;
+	}
+</style>

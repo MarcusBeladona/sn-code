@@ -1,13 +1,8 @@
 <script setup>
-	const contactElement = ref(null)
 	const route = useRoute()
 	const isHome = computed(() => route.path === '/')
 	const isOverlayOpen = ref(false)
 	const mobileMenuPanelId = 'mobile-menu-panel'
-
-	onMounted(() => {
-		contactElement.value = document.getElementById('contact')
-	})
 
 	const closeOverlay = () => {
 		isOverlayOpen.value = false
@@ -19,7 +14,7 @@
 
 	const scrollToContact = () => {
 		closeOverlay()
-		contactElement.value?.scrollIntoView({
+		document.getElementById('contact')?.scrollIntoView({
 			behavior: 'smooth',
 			block: 'start'
 		})
@@ -28,17 +23,19 @@
 
 <template>
 	<header class="flex justify-between items-center gap-4 pt-6 w-full">
-		<Transition name="iconFade" mode="out-in">
-			<NuxtLink to="/" @click="closeOverlay" class="animate-appear button-secondary">
-				<Icon v-show="!isHome" name="ph:arrow-left" size="20" class="animate-appear" />
-				Marcus Beladona
-			</NuxtLink>
-		</Transition>
+		<NuxtLink to="/" @click="closeOverlay" class="animate-appear button-secondary">
+			<span class="inline-flex items-center min-w-0" :class="!isHome ? 'gap-1' : 'gap-0'">
+				<span class="home-link__iconWrap" :class="{ 'home-link__iconWrap--open': !isHome }" aria-hidden="true">
+					<Icon name="ph:arrow-left" size="20" class="home-link__icon" :class="{ 'home-link__icon--visible': !isHome }" />
+				</span>
+				<span>Marcus Beladona</span>
+			</span>
+		</NuxtLink>
 		<span class="flex gap-2">
 			<NuxtLink to="/about" @click="closeOverlay" class="hidden md:flex button-secondary">Sobre</NuxtLink>
 			<button @click="scrollToContact" class="hidden md:flex button-primary">Contato</button>
 			<!-- Mobile Menu Toggle -->
-			<button type="button" @click="toggleOverlay" :aria-expanded="isOverlayOpen" :aria-controls="mobileMenuPanelId" class="md:hidden p-2 w-10 h-10">
+			<button type="button" @click="toggleOverlay" :aria-expanded="isOverlayOpen" :aria-controls="mobileMenuPanelId" class="button-primary md:hidden p-2 w-10 h-10">
 				<Transition name="iconFade" mode="out-in">
 					<Icon v-if="!isOverlayOpen" name="ph:list" size="20" />
 					<Icon v-else name="ph:x" size="20" />
@@ -46,7 +43,7 @@
 			</button>
 		</span>
 		<!-- Mobile Menu Overlay -->
-		<AppMenu :open="isOverlayOpen" :onClose="closeOverlay" :onGoAbout="closeOverlay" :onGoContact="scrollToContact" />
+		<AppMenu :open="isOverlayOpen" @close="closeOverlay" @contact="scrollToContact" />
 	</header>
 </template>
 
@@ -55,6 +52,32 @@
 
 	.router-link-exact-active {
 		@apply hover:bg-white border-zinc-200 hover:border-zinc-200 cursor-default;
+	}
+
+	/* Home link: slot width and icon fade run together */
+	.home-link__iconWrap {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+		max-width: 0;
+		transition: max-width 200ms ease;
+	}
+
+	.home-link__iconWrap--open {
+		max-width: 1.75rem;
+	}
+
+	.home-link__icon {
+		opacity: 0;
+		transform: translateY(-2px);
+		transition: opacity 200ms ease, transform 200ms ease;
+		flex-shrink: 0;
+	}
+
+	.home-link__icon--visible {
+		opacity: 1;
+		transform: translateY(0);
 	}
 
 	/* Transition styles */
