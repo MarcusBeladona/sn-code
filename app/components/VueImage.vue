@@ -22,14 +22,17 @@
 	})
 	const imageView = ref(false)
 	const toggleImageView = () => {
-		console.log('clicked');
-		imageView.value = !imageView.value
+		if (window.matchMedia('(min-width: 768px)').matches) {
+			imageView.value = !imageView.value
+		}
 	}
 </script>
 
 <template>
 	<figure :class="isSpanFull ? 'col-span-full' : 'col-span-8 col-start-3'" class="flex flex-col gap-2">
-		<section :class="hasContainer ? 'flex gap-4 flex-col bg-zinc-100 p-4 rounded-3xl border border-white ring ring-zinc-200' : ''" class="rounded-3xl">
+		<section
+		:class="hasContainer ? 'flex gap-4 flex-col bg-zinc-100 p-4 rounded-3xl border border-white ring ring-zinc-200' : ''"
+		class="rounded-3xl">
 			<span v-if="hasContainer" class="flex gap-2">
 				<Icon name="ph:circle-fill" size="20" class="text-zinc-200" />
 				<Icon name="ph:circle-fill" size="20" class="text-zinc-200" />
@@ -38,13 +41,15 @@
 			<SanityImage @click="toggleImageView" :asset-id="assetId" :class="[
 				hasBorder ? 'border border-white ring ring-zinc-200' : '',
 				hasContainer ? 'rounded-2xl' : 'rounded-3xl'
-			]" class="cursor-zoom-in transition hover:scale-102" />
+			]" class="hover:scale-102 transition cursor-zoom-in" />
 		</section>
 		<figcaption v-if="caption" class="text-center italic">{{ caption }}</figcaption>
 		<!-- Image Fullscreen Modal -->
 		<Transition name="fade" appear>
-			<div v-if="imageView" @click="toggleImageView" class="fixed inset-0 z-50 bg-black/66 flex p-6 h-full w-full justify-center items-center cursor-zoom-out transition duration-200">
-				<SanityImage :asset-id="assetId" class="w-fit h-full max-h-full max-w-full object-scale-down rounded-3xl animate-grow" />
+			<div v-if="imageView" @click="toggleImageView"
+			class="z-50 fixed inset-0 flex justify-center items-center bg-black/66 p-6 w-full h-full transition duration-200 cursor-zoom-out">
+				<SanityImage :asset-id="assetId"
+				class="rounded-3xl w-fit max-w-full h-full max-h-full object-scale-down animate-grow" />
 			</div>
 		</Transition>
 	</figure>
