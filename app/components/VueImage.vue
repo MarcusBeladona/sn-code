@@ -37,7 +37,7 @@
 				<Icon name="ph:circle-fill" size="16" class="text-zinc-200" />
 			</span>
 			<SanityImage @click="toggleImageView" :asset-id="assetId" :class="hasBorder ? 'border border-zinc-200 ring ring-white' : ''
-				" class="hover:scale-102 transition cursor-zoom-in rounded-3xl" />
+				" class="w-full hover:scale-102 transition cursor-zoom-in rounded-3xl" />
 		</section>
 		<figcaption v-if="caption" class="text-center italic">{{ caption }}</figcaption>
 		<!-- Image Fullscreen Modal -->
