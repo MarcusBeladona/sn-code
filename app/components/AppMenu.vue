@@ -62,21 +62,10 @@
 	<Teleport to="body">
 		<!-- v-if must be on each Transition's root so leave hooks run before unmount -->
 		<Transition name="mobileMenuBackdrop" appear>
-			<div
-				v-if="open"
-				role="presentation"
-				@click.self="emit('close')"
-				class="fixed inset-0 bg-black/30 z-40"
-			/>
+			<div v-if="open" role="presentation" @click.self="emit('close')" class="fixed inset-0 bg-black/30 z-40" />
 		</Transition>
 		<Transition name="mobileMenuPanel" appear>
-			<nav
-				v-if="open"
-				:id="panelId"
-				role="dialog"
-				aria-modal="true"
-				class="top-22 right-0 z-50 fixed flex flex-col justify-center items-center gap-4 bg-zinc-100 mx-6 p-4 border border-zinc-200 rounded-3xl w-fit h-fit"
-			>
+			<nav v-if="open" :id="panelId" role="dialog" aria-modal="true" class="top-22 right-0 z-50 fixed flex flex-col justify-center items-center gap-4 bg-zinc-100 mx-6 p-4 border border-zinc-200 rounded-3xl w-fit h-fit">
 				<NuxtLink to="/about" @click="emit('close')" class="w-full button-secondary">
 					Sobre
 				</NuxtLink>

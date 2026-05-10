@@ -16,7 +16,6 @@
 		closeOverlay()
 		document.getElementById('contact')?.scrollIntoView({
 			behavior: 'smooth',
-			block: 'start'
 		})
 	}
 </script>
