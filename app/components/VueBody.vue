@@ -24,10 +24,13 @@
 				description: props.value.description
 			}),
 			container: props => h(VueContainer, {
-				isSpanFull: Boolean(props.value.isSpanFull),
-				hasContainer: Boolean(props.value.hasContainer),
-				items: props.value.items ?? []
+				fullSpan: Boolean(props.value.fullSpan),
+				assetId: props.value.image.asset._ref,
 			}),
+			grid: props => h(VueGrid, {
+				fullSpan: props.value.fullspan,
+				items: props.value.items,
+			})
 		},
 		marks: {
 			highlight: (props) => h('span', { class: 'highlight' }, props.text)

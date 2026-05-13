@@ -7,9 +7,9 @@
 		caption: {
 			type: String,
 		},
-		isSpanFull: {
+		fullSpan: {
 			type: Boolean,
-			default: false
+			default: true
 		},
 		hasContainer: {
 			type: Boolean,
@@ -29,7 +29,7 @@
 </script>
 
 <template>
-	<figure :class="isSpanFull ? 'col-span-full' : 'col-span-8 col-start-3'" class="flex flex-col gap-2">
+	<figure :class="fullSpan ? 'col-span-full' : 'col-span-8 col-start-3'" class="flex flex-col gap-2">
 		<section :class="hasContainer ? 'flex flex-col bg-zinc-100 rounded-3xl border border-white ring ring-zinc-200' : ''">
 			<span v-if="hasContainer" class="flex gap-2 py-3 px-4">
 				<Icon name="ph:circle-fill" size="16" class="text-zinc-200" />
@@ -37,7 +37,7 @@
 				<Icon name="ph:circle-fill" size="16" class="text-zinc-200" />
 			</span>
 			<SanityImage @click="toggleImageView" :asset-id="assetId" :class="hasBorder ? 'border border-zinc-200 ring ring-white' : ''
-				" class="w-full hover:scale-102 transition cursor-zoom-in rounded-3xl" />
+				" class="rounded-3xl w-full hover:scale-102 transition cursor-zoom-in" />
 		</section>
 		<figcaption v-if="caption" class="text-center italic">{{ caption }}</figcaption>
 		<!-- Image Fullscreen Modal -->

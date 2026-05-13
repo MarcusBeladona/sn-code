@@ -5,7 +5,7 @@
 </script>
 
 <template>
-	<main v-if="story" class="flex flex-col gap-6">
+	<main v-if="story" class="flex flex-col md:grid md:grid-cols-12 gap-6">
 		<h4 class="md:col-span-8 md:col-start-3">{{ story.title }}</h4>
 		<p class="md:col-span-8 md:col-start-3">{{ story.description }}</p>
 		<span class="flex flex-wrap gap-x-2 md:col-span-8 md:col-start-3">
@@ -13,8 +13,7 @@
 				{{ tagName }}
 			</p>
 		</span>
-		<VueImage :asset-id="story.thumb.asset._ref" />
-		<VueBody :body="story.body" />
+		<VueBody :body="story.body" class="col-span-full" />
 	</main>
 	<main v-else class="flex flex-col gap-6">
 		<p class="text-zinc-600">Este projeto não foi encontrado.</p>

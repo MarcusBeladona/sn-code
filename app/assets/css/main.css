@@ -28,6 +28,15 @@
 			opacity: 1;
 		}
 	}
+	--animate-disappear: disappear 300ms ease-in;
+	@keyframes disappear {
+		0% {
+			opacity: 1;
+		}
+		100% {
+			opacity: 0;
+		}
+	}
 	--animate-grow: grow 200ms ease-in-out;
 	@keyframes grow {
 		0% {
@@ -65,7 +74,7 @@
 	h4,
 	h5,
 	h6 {
-		@apply text-zinc-900 font-medium leading-tight font-display;
+		@apply text-zinc-900 font-medium leading-tight font-display text-pretty;
 	}
 	h1 {
 		@apply text-6xl;
@@ -90,6 +99,9 @@
 	}
 }
 @layer components {
+	.edge {
+		@apply bg-zinc-100 border border-white ring ring-zinc-200 rounded-3xl;
+	}
 	.button-primary {
 		@apply flex w-fit h-10 items-center justify-center gap-1 rounded-full px-4 py-2 bg-zinc-900 text-white transition duration-300 border border-zinc-900 hover:bg-zinc-100 hover:text-zinc-900 hover:border-zinc-200 cursor-pointer;
 	}
