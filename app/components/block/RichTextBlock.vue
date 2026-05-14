@@ -10,11 +10,7 @@
 	const components = {
 		types: {
 			figure: props => h(FigureBlock, {
-				assetId: props.value.image.asset._ref,
-				isSpanFull: props.value.isSpanFull,
-				hasContainer: props.value.hasContainer,
-				hasBorder: props.value.hasBorder,
-				caption: props.value.caption
+				data: props.value,
 			}),
 			card: props => h(CardBlock, {
 				icon: props.value.icon_name,
@@ -55,7 +51,7 @@
 </script>
 
 <template>
-	<div class="prose prose-zinc prose-a:text-blue-700 max-w-max md:grid grid-cols-12 flex flex-col gap-8">
+	<div class="prose prose-zinc prose-a:text-blue-700 max-w-full md:grid grid-cols-12 flex flex-col gap-8">
 		<SanityContent :value="body" :components="components" />
 	</div>
 </template>

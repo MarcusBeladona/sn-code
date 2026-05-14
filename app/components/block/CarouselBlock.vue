@@ -18,7 +18,7 @@
 	<section class="flex flex-col gap-2" :class="[FS ? 'bg-black/90 fixed inset-0 z-40 justify-center items-center' : '', data.fullSpan ? 'col-span-full' : 'col-span-8 col-start-3']">
 		<Carousel :class="{ 'hover:scale-101 duration-150': !FS, edge: data.hasBorder }">
 			<Slide v-for="image in data.content">
-				<SanityImage :asset-id="image.asset._ref" class="w-full" />
+				<SanityImage :asset-id="image.asset._ref" class="w-full contain-content" />
 			</Slide>
 
 			<template #addons>
@@ -55,6 +55,7 @@
 	:deep(.carousel__next):hover,
 	.btn-middle:hover {
 		opacity: 1 !important;
+		@apply duration-300;
 	}
 
 

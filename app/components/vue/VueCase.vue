@@ -2,7 +2,7 @@
 	const props = defineProps({ item: Object })
 </script>
 <template>
-	<NuxtLink v-if="item.mockup" :to="`/cases/${item.slug.current}`" class="flex edge flex-col lg:flex-row col-span-full items-center animate-enter hover:-translate-y-1 hover:ring-zinc-300 duration-150">
+	<NuxtLink v-if="item.mockup" :to="`/cases/${item.slug.current}`" class="flex edge flex-col lg:flex-row lg:mb-[72px] col-span-full items-center animate-enter hover:-translate-y-1 hover:ring-zinc-300 duration-150">
 		<section class="flex flex-col gap-2 p-4 lg:gap-4 lg:p-12 lg:pr-0 max-w-lg">
 			<h6 class="line-clamp-2 md:text-4xl">{{ item.title }}</h6>
 			<VueTags :list="item.tags" />
