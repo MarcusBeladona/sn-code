@@ -98,10 +98,9 @@
 		@apply scroll-smooth;
 	}
 }
+
 @layer components {
-	.edge {
-		@apply bg-zinc-100 border border-white ring ring-zinc-200 rounded-3xl;
-	}
+		
 	.button-primary {
 		@apply flex w-fit h-10 items-center justify-center gap-1 rounded-full px-4 py-2 bg-zinc-900 text-white transition duration-300 border border-zinc-900 hover:bg-zinc-100 hover:text-zinc-900 hover:border-zinc-200 cursor-pointer;
 	}
@@ -109,3 +108,15 @@
 		@apply flex w-fit h-10 items-center justify-center gap-1 rounded-full px-4 py-2 border border-zinc-900 text-zinc-900 transition duration-300 hover:border-zinc-200 hover:bg-zinc-100 cursor-pointer;
 	}
 }
+
+@utility autohide {
+	@apply hover:opacity-100 transition-opacity duration-300;
+}
+
+@utility edge {
+	@apply bg-zinc-100 border border-white ring ring-zinc-200 rounded-3xl;
+}
+
+body.modal-active {
+		overflow-y: hidden;
+	}

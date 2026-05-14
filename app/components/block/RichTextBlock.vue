@@ -1,4 +1,6 @@
 <script setup>
+	import CarouselBlock from './CarouselBlock.vue'
+
 	const props = defineProps({
 		body: {
 			type: Object,
@@ -7,30 +9,29 @@
 	})
 	const components = {
 		types: {
-			image: props => h(VueImage, {
-				assetId: props.value.asset._ref,
-				caption: props.value.caption
-			}),
-			imageBlock: props => h(VueImage, {
+			figure: props => h(FigureBlock, {
 				assetId: props.value.image.asset._ref,
 				isSpanFull: props.value.isSpanFull,
 				hasContainer: props.value.hasContainer,
 				hasBorder: props.value.hasBorder,
 				caption: props.value.caption
 			}),
-			card: props => h(VueCard, {
+			card: props => h(CardBlock, {
 				icon: props.value.icon_name,
 				title: props.value.title,
 				description: props.value.description
 			}),
-			container: props => h(VueContainer, {
+			container: props => h(ContainerBlock, {
 				fullSpan: Boolean(props.value.fullSpan),
 				assetId: props.value.image.asset._ref,
 			}),
-			grid: props => h(VueGrid, {
+			grid: props => h(GridBlock, {
 				fullSpan: props.value.fullspan,
 				items: props.value.items,
-			})
+			}),
+			carousel: props => h(CarouselBlock, {
+				data: props.value.hero[0],
+			}),
 		},
 		marks: {
 			highlight: (props) => h('span', { class: 'highlight' }, props.text)

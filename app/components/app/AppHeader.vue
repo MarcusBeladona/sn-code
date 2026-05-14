@@ -42,7 +42,7 @@
 			</button>
 		</span>
 		<!-- Mobile Menu Overlay -->
-		<AppMenu :open="isOverlayOpen" @close="closeOverlay" @contact="scrollToContact" />
+		<AppMobileMenu :open="isOverlayOpen" @close="closeOverlay" @contact="scrollToContact" />
 	</header>
 </template>
 

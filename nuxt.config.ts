@@ -7,10 +7,17 @@ const sanityDataset = 'production'
 export default defineNuxtConfig({
 	compatibilityDate: '2025-07-15',
 	devtools: { enabled: false },
+	components: [
+		{
+			path: '~/components',
+			pathPrefix: false,
+		},
+	],
 	modules: [
 		'@nuxt/image',
 		'@nuxt/icon',
-		'@nuxtjs/sanity'
+		'@nuxtjs/sanity',
+		'vue3-carousel-nuxt',
 	],
 	css: ['./app/assets/css/main.css'],
 	vite: {

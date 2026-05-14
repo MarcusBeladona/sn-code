@@ -61,22 +61,15 @@
 
 		<section class="md:grid grid-cols-12 w-full">
 			<div class="col-span-full flex flex-col gap-6 md:flex-row">
-				<VueCard
-					v-for="item in specialties"
-					:key="item.title"
-					:icon="item.icon"
-					:title="item.title"
-					:description="item.description"
-					class="flex-1"
-				/>
+				<CardBlock v-for="item in specialties" :key="item.title" :icon="item.icon" :title="item.title" :description="item.description" class="flex-1" />
 			</div>
 		</section>
 
 		<section class="flex md:flex-row flex-col gap-24 md:gap-6">
 			<section class="flex flex-col gap-6">
 				<h5>Acadêmico</h5>
-				<p>
-					Graduado em Design Digital com estudos nas áreas de Interação Humano-Computador, Prototipagem, UX,
+				<p class="line-clamp-3">
+					Graduado em Design Digital com estudos em Interação Humano-Computador, Prototipagem, UX,
 					Desenvolvimento Front-end, Mobile, Arquitetura da Informação e Tipografia.
 				</p>
 				<span class="flex flex-wrap gap-4 bg-zinc-100 p-4 border border-white rounded-2xl ring ring-zinc-200">
@@ -91,7 +84,7 @@
 
 			<section class="flex flex-col gap-6">
 				<h5>Profissional</h5>
-				<p>
+				<p class="line-clamp-3">
 					Mais de quatro anos na área de experiência do usuário e design de interfaces, com foco em
 					usabilidade, acessibilidade e design systems para times de design e desenvolvimento.
 				</p>
