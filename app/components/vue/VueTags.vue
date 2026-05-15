@@ -4,7 +4,7 @@
 <template>
 	<span class="flex gap-2">
 		<span v-for="tag in list">
-			<p>{{ tag }}</p>
+			<p class="text-sm uppercase">{{ tag }}</p>
 		</span>
 	</span>
 </template>

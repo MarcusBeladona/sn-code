@@ -14,8 +14,10 @@
 			</span>
 		</section>
 		<!-- Cases -->
-		<section v-if="cases.length" class="flex flex-col gap-6 md:grid md:grid-cols-2">
+		<section v-if="cases.length" id="cardsbox" class="flex flex-col gap-24 md:grid md:grid-cols-2">
 			<VueCase v-for="item in cases" :item="item" />
 		</section>
 	</main>
 </template>
+
+<style scoped></style>
