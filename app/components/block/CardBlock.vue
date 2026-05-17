@@ -13,8 +13,10 @@
 </script>
 
 <template>
-	<article class="h-fit border border-white ring ring-zinc-200 p-4 flex flex-col gap-4 bg-zinc-100 rounded-2xl">
-		<Icon v-if="icon" :name="icon" size="32" />
+	<article class="aspect-4/3 p-6 flex flex-col gap-2 bg-white edge justify-between">
+		<span class="btn-secondary w-12 h-12 p-0 rounded-field">
+			<Icon v-if="icon" :name="icon" size="24" />
+		</span>
 		<span class="flex flex-col gap-2">
 			<h6>{{ title }}</h6>
 			<p>{{ description }}</p>

@@ -9,8 +9,8 @@
 		<section class="flex flex-col gap-6">
 			<h5 class="md:text-5xl">Olá! Eu sou Marcus Beladona, Designer Digital atualmente em Fortaleza-CE.</h5>
 			<span class="flex gap-2">
-				<p class="flex justify-center items-center text-zinc-900 bg-zinc-100 px-4 border border-zinc-200 rounded-full w-fit h-10">UX/UI Designer</p>
-				<p class="flex justify-center text-zinc-900 items-center bg-zinc-100 px-4 border border-zinc-200 rounded-full h-10">Product Designer</p>
+				<p class="btn-secondary">UX/UI Designer</p>
+				<p class="btn-secondary">Product Designer</p>
 			</span>
 		</section>
 		<!-- Cases -->
@@ -19,5 +19,3 @@
 		</section>
 	</main>
 </template>
-
-<style scoped></style>

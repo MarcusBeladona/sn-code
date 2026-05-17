@@ -51,7 +51,7 @@
 </script>
 
 <template>
-	<div class="prose prose-zinc prose-a:text-blue-700 max-w-full md:grid grid-cols-12 flex flex-col gap-8">
+	<div class="prose prose-zinc prose-a:text-blue-700 max-w-max w-full flex flex-col gap-12">
 		<SanityContent :value="body" :components="components" />
 	</div>
 </template>
@@ -64,15 +64,15 @@
 	}
 
 	:deep(.highlight) {
-		@apply text-zinc-900 inline pb-0.5;
+		@apply text-stone-900 inline pb-0.5;
 
-		background-image: linear-gradient(to right, #fff2aa 0%, #fff2aa 100%);
+		background-image: linear-gradient(to right, #F3DBB4 0%, #F3DBB4 100%);
 		background-repeat: no-repeat;
 		background-size: 0% 100%;
 	}
 
 	:deep(.highlight.isVisible) {
-		animation: slide 2s ease forwards;
+		animation: slide 2s ease-in-out forwards;
 	}
 
 	:deep(:where(p, h1, h2, h3, h4, h5, h6, ul, ol, blockquote, pre, li, ol)) {
