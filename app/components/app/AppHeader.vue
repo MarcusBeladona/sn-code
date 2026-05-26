@@ -1,7 +1,4 @@
 <script setup>
-	const route = useRoute()
-	const isHome = computed(() => route.path === '/')
-
 	const scrollToContact = () => {
 		document.getElementById('contact')?.scrollIntoView({
 			behavior: 'smooth',
@@ -13,10 +10,7 @@
 	<header class="navbar p-0 pt-6">
 		<!-- Logo -->
 		<div class="flex-1">
-			<NuxtLink to="/" class="btn-secondary">
-				<Icon v-show="!isHome" name="ph:arrow-left" />
-				<span>Marcus Beladona</span>
-			</NuxtLink>
+			<NuxtLink to="/" class="btn-secondary">Marcus Beladona</NuxtLink>
 		</div>
 		<!-- Menu -->
 		<div class="flex gap-2 flex-none">

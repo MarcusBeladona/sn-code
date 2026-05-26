@@ -21,36 +21,34 @@
 </script>
 
 <template>
-	<footer class="flex flex-col gap-24 w-full">
-		<!-- Contact Card -->
-		<article id="contact" class="flex edge p-12 lg:gap-12 flex-col md:flex-row">
-			<!-- Contact Information -->
-			<span class="flex flex-col justify-center items-center md:items-start gap-4 md:gap-6">
-				<h2 class="md:min-w-90 text-nowrap text-2xl text-center md:text-start md:text-4xl lg:text-5xl">
-					Gostou do que viu?<br>Vamos conversar!</h2>
-				<!-- Field Container -->
-				<span class="flex flex-col gap-4 items-center md:items-start">
-					<!-- Field -->
-					<span class="flex items-center bg-white border border-zinc-200 overflow-hidden rounded-xl w-fit">
-						<p class="content-center px-4 border-zinc-200 border-r h-full">{{ email }}</p>
-						<button type="button" aria-label="Copiar e-mail" @click="copyToClipboard" class="btn-secondary border-none p-0 rounded-none">
-							<Icon name="ph:copy" />
-						</button>
-					</span>
-					<a :href="`mailto:${email}`" class="btn-primary">
-						<Icon name="ph:arrow-square-out" />
-						Abrir
-					</a>
-				</span>
-			</span>
-			<!-- Image Container -->
-			<span class="order-first md:order-last w-full">
-				<NuxtImg src="img/jumping-opendoodles.svg" class="w-full max-w-[512px] h-fit object-contain"></NuxtImg>
-			</span>
-		</article>
-		<!-- Real Footer -->
+	<footer class="flex flex-col gap-36 w-full">
+		<!-- Contact -->
+		<section id="contact" class="flex flex-col gap-6">
+			<div class="flex gap-6 justify-between">
+				<h4>Contato</h4>
+				<button class="btn-secondary p-0">
+					<Icon name="ph:arrow-up" />
+				</button>
+			</div>
+			<hr class="border-dashed text-zinc-300">
+			<section class="grid grid-cols-12 gap-6 justify-between">
+				<section class="flex flex-col col-span-6">
+					<h5 class="underline h-10 content-center">marcusbeladona@gmail.com</h5>
+					<h6 class="text-zinc-700 h-10 content-center">+55 (88) 9 8859-4402</h6>
+				</section>
+				<section class="flex flex-col col-span-3">
+					<NuxtLink to="" class="btn-link -ml-4">Cases</NuxtLink>
+					<NuxtLink to="" class="btn-link -ml-4">Blog</NuxtLink>
+				</section>
+				<section class="flex flex-col col-span-3">
+					<NuxtLink to="" class="btn-link -ml-4">Sobre</NuxtLink>
+					<NuxtLink to="" class="btn-link -ml-4">Contato</NuxtLink>
+				</section>
+			</section>
+		</section>
+		<!-- Footer -->
 		<span class="flex flex-wrap justify-center md:justify-between items-center gap-4 pb-4 w-full">
-			<p>{{ new Date().getFullYear() }} &copy; Marcus Beladona&trade;</p>
+			<p>{{ new Date().getFullYear() }} &copy; Marcus Beladona</p>
 			<span class="flex lg:-mr-4">
 				<a v-for="link in socialLinks" :key="link.url" :href="link.url" target="_blank" rel="noopener noreferrer" class="btn-link">
 					<Icon name="ph:arrow-square-out" />
