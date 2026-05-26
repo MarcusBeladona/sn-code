@@ -5,3 +5,4 @@ Made with:
 - Sanity
 - Vercel
 - TailwindCSS
+- DaisyUI
