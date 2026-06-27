@@ -1,18 +1,20 @@
 <script setup>
 	const language = useSanityLanguage()
-	const query = groq`*[_type == "case" && language == $language] | order(_createdAt desc)`
+	const query = groq`*[_type == "case" && language == $language]`
 	const { data: cases } = await useSanityQuery(query, { language })
 </script>
 
 <template>
 	<main class="flex flex-col gap-36">
+		<!-- Cases -->
 		<section class="flex flex-col gap-6">
-			<h5 class="md:text-6xl">{{ $t('home.intro') }}</h5>
-			<span class="flex gap-2">
-				<p class="btn-secondary text-sm">UX/UI</p>
-				<p class="btn-secondary text-sm">PRODUCT</p>
-				<p class="btn-secondary text-sm">BRANDING</p>
-			</span>
+			<div class="flex gap-6 items-end">
+				<h4 class="text-nowrap">Cases</h4>
+				<hr class="border-dashed text-zinc-300 w-full pb-3.5">
+			</div>
+			<section v-if="cases?.length" id="cardsbox" class="grid grid-cols-3 gap-6">
+				<VueCase v-for="item in cases" :key="item._id" :item="item" />
+			</section>
 		</section>
 	</main>
 </template>

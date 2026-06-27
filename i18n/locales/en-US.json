@@ -4,8 +4,9 @@
 		"contact": "Contact"
 	},
 	"home": {
+		"disponibility": "Avaliable",
 		"intro": "Hi! I'm Marcus Beladona, a Digital Designer currently based in Fortaleza, Brazil.",
-		"cases": "Cases",
+		"cases": "Featured",
 		"seeMore": "See More",
 		"blog": "Blog"
 	},

@@ -1,8 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import tailwindcss from "@tailwindcss/vite";
+import { createResolver } from "nuxt/kit"
 
 const sanityProjectId = 'zt4joqnt'
 const sanityDataset = 'production'
+
+const { resolve } = createResolver(import.meta.url)
 
 export default defineNuxtConfig({
 	compatibilityDate: '2026-06-26',
@@ -27,7 +30,6 @@ export default defineNuxtConfig({
 			{ code: 'en-US', language: 'en-US', name: 'English', file: 'en-US.json' },
 			{ code: 'pt-BR', language: 'pt-BR', name: 'Português', file: 'pt-BR.json' },
 		],
-		lazy: true,
 		langDir: 'locales',
 		detectBrowserLanguage: {
 			useCookie: true,
