@@ -83,7 +83,7 @@
 			transform: scale(0.5);
 		}
 		100% {
-			transofrm: scale(1)
+			transform: scale(1)
 		}
 	}
 	--animate-slide: slide 1s ease forwards;

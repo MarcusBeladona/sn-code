@@ -1,6 +1,5 @@
 <script setup>
 	const props = defineProps({ data: Object })
-	console.log(props.data);
 
 	const FS = ref(false)
 	const toggleFS = () => {

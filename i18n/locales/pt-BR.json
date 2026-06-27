@@ -1,0 +1,72 @@
+{
+	"nav": {
+		"about": "Sobre",
+		"contact": "Contato"
+	},
+	"home": {
+		"intro": "Olá! Eu sou Marcus Beladona, Designer Digital atualmente em Fortaleza-CE.",
+		"cases": "Cases",
+		"seeMore": "Ver Mais",
+		"blog": "Blog"
+	},
+	"about": {
+		"title": "Sobre Mim",
+		"bio1": "Sou Designer Digital com +4 anos de experiência em usabilidade, design systems e criação de produtos digitais orientados à consistência e à experiência do usuário. Sou graduado em Design Digital pela Universidade Federal do Ceará (UFC), onde estudei Interação Humano-Computador, usabilidade, acessibilidade, criação de produtos digitais, desenvolvimento front-end e outras áreas.",
+		"bio2": "Acredito em produtos que unem funcionalidade, estética e intuitividade, sem ignorar pessoas, seus contextos e a realidade em que vivem. Se quiser conhecer mais sobre meu trabalho ou conversar sobre oportunidades, estou à disposição.",
+		"academic": "Acadêmico",
+		"academicText": "Graduado em Design Digital com estudos nas áreas de Interação Humano-Computador, Prototipagem, UX, Desenvolvimento Front-end, Mobile, Arq. de Informação, Tipografia, entre outras.",
+		"degree": "Design Digital",
+		"professional": "Profissional",
+		"professionalText": "Mais de quatro anos trabalhando na área de experiência do usuário e design de interfaces, com foco em usabilidade, acessibilidade e design systems para times de design e desenvolvimento.",
+		"specialties": [
+			{
+				"icon": "ph:devices",
+				"title": "Pesquisa & Estratégia",
+				"description": "Criação de interfaces intuitivas e agradáveis, focadas na melhor experiência do usuário baseada em estratégia de negócios."
+			},
+			{
+				"icon": "ph:bounding-box",
+				"title": "UI & Prototipagem",
+				"description": "Interfaces acessíveis com protótipos navegáveis para validar fluxos antes do desenvolvimento."
+			},
+			{
+				"icon": "ph:circles-three",
+				"title": "Design Systems",
+				"description": "Padronização de componentes e documentação para manter consistência entre times."
+			}
+		],
+		"experience": [
+			{
+				"role": "UX/UI Designer",
+				"company": "LDI (UECE)",
+				"period": "Jun. 2023 - Jan. 2024",
+				"logo": "img/ldi-logo.jpg"
+			},
+			{
+				"role": "UX/UI Designer",
+				"company": "Lead Dell",
+				"period": "Mai. 2022 - Jan. 2023",
+				"logo": "img/lead-logo.jpg"
+			},
+			{
+				"role": "UX/UI Designer",
+				"company": "Nomo",
+				"period": "Out. 2020 - Nov. 2021",
+				"logo": "img/nomo-logo.jpg"
+			}
+		]
+	},
+	"case": {
+		"published": "Publicado",
+		"showcase": "Showcase",
+		"seeMore": "Ver Mais",
+		"notFound": "Case não encontrado.",
+		"blog": "Blog"
+	},
+	"footer": {
+		"contact": "Contato",
+		"cases": "Cases",
+		"blog": "Blog",
+		"about": "Sobre"
+	}
+}
