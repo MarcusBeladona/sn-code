@@ -1,6 +1,6 @@
 <script setup>
 	const language = useSanityLanguage()
-	const query = groq`*[_type == "case" && bookmark == true && language == $language]`
+	const query = groq`*[_type == "case" && bookmark == true && language == $language] | order(orderRank)`
 	const { data: cases } = await useSanityQuery(query, { language })
 </script>
 

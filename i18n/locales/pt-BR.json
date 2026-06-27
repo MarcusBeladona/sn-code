@@ -69,5 +69,9 @@
 		"cases": "Cases",
 		"blog": "Blog",
 		"about": "Sobre"
+	},
+	"error": {
+		"return": "Voltar para Home",
+		"title": "Oops! A página não foi encontrada!"
 	}
 }
