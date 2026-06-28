@@ -1,11 +1,12 @@
 <script setup>
-const { locale } = useI18n()
+	import '~/assets/css/main.css'
+	const { locale } = useI18n()
 
-useHead({
-	htmlAttrs: {
-		lang: locale,
-	},
-})
+	useHead({
+		htmlAttrs: {
+			lang: locale,
+		},
+	})
 </script>
 
 <template>

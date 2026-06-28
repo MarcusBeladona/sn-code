@@ -21,7 +21,7 @@
 		<div class="flex gap-2">
 			<!-- Lang Button -->
 			<div class="dropdown dropdown-center">
-				<div tabindex="0" role="button" class="btn-secondary p-0">
+				<div tabindex="0" role="button" aria-label="toggle-lang" class="btn-secondary p-0">
 					<Icon name="ph:globe" />
 				</div>
 				<ul tabindex="-1" class="dropdown-content menu z-1 mt-2 p-2 bg-white rounded-2xl border border-stone-300">

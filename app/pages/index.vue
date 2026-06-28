@@ -2,6 +2,11 @@
 	const language = useSanityLanguage()
 	const query = groq`*[_type == "case" && bookmark == true && language == $language] | order(orderRank)`
 	const { data: cases } = await useSanityQuery(query, { language })
+
+	useSeoMeta({
+		title: 'Marcus Beladona',
+		description: 'Marcus Beladona Portfolio Site | Product Designer | UX/UI Designer',
+	})
 </script>
 
 <template>
@@ -9,10 +14,10 @@
 		<!-- Intro -->
 		<section class="flex flex-col gap-6">
 			<span class="flex items-center gap-2">
-				<NuxtImg src="/img/avatar.png" alt="Avatar" class="w-8 h-8 rounded-full" />
+				<NuxtImg src="/img/avatar.png" alt="Avatar" width="32" height="32" format="webp" class="rounded-full" />
 				<span class="flex items-center gap-1.5 bg-green-50 rounded-full pl-3.5 pr-4 h-8 justify-center w-fit border border-green-600">
-					<Icon name="ph:circle-fill" size="6" class="text-green-600 animate-pulse" />
-					<p class="text-sm text-green-600">{{ $t('home.disponibility') }}</p>
+					<Icon name="ph:circle-fill" size="6" class="text-green-700 animate-pulse" />
+					<p class="text-sm text-green-700">{{ $t('home.disponibility') }}</p>
 				</span>
 			</span>
 			<h5 class="md:text-6xl">{{ $t('home.intro') }}</h5>
@@ -21,7 +26,7 @@
 				<p class="text-sm px-4 py-1.5 bg-white rounded-full border border-zinc-200 h-8 center justify-center w-fit">UX/UI</p>
 				<p class="text-sm px-4 py-1.5 bg-white rounded-full border border-zinc-200 h-8 center justify-center w-fit">BRANDING</p>
 				<span class="flex items-center gap-1 bg-linear-[-90deg,#0047FF_0%,#00B1FD_97%] rounded-full pl-3 pr-4 h-7.5 justify-center w-fit">
-					<img src="../assets/icons/sparkle.svg" alt="sparkle icon">
+					<img src="../assets/icons/sparkle.svg" width="16" height="16" alt="sparkle icon">
 					<p class="text-sm text-white">AI</p>
 				</span>
 			</span>
