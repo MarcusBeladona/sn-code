@@ -36,7 +36,7 @@
 			<button @click="scrollToContact" class="hidden md:flex">{{ $t('nav.contact') }}</button>
 			<!-- Mobile Menu Button -->
 			<div class="btn p-0 h-10 w-10 dropdown dropdown-bottom dropdown-end md:hidden">
-				<div tabindex="0" role="button" class="btn-primary p-0">
+				<div tabindex="0" role="button" aria-label="menu-button" class="btn-primary p-0">
 					<Icon name="ph:list" />
 				</div>
 				<ul tabindex="1" class="dropdown-content menu z-1 mt-2 gap-2 justify-center items-center p-4 bg-white rounded-2xl border border-stone-200">
