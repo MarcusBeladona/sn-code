@@ -98,7 +98,7 @@
 
 @layer base {
 	#__nuxt {
-		@apply max-w-7xl items-center m-auto px-6 flex flex-col gap-36;
+		@apply max-w-332 items-center flex px-6 flex-col gap-36 mx-auto;
 	}
 	section, main {
 		@apply animate-enter;

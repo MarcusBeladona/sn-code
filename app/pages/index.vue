@@ -1,11 +1,22 @@
 <script setup>
 	const language = useSanityLanguage()
-	const query = groq`*[_type == "case" && bookmark == true && language == $language] | order(orderRank)`
+	const query = groq`*[_type == "case" && bookmark == true && language == $language]
+  | order(orderRank) {
+    _id,
+    title,
+    slug,
+    description,
+    tags,
+    release,
+    thumb
+  }`
 	const { data: cases } = await useSanityQuery(query, { language })
 
 	useSeoMeta({
 		title: 'Marcus Beladona',
 		description: 'Marcus Beladona Portfolio Site | Product Designer | UX/UI Designer',
+		ogTitle: 'Marcus Beladona',
+		ogDescription: 'Marcus Beladona Portfolio Site | Product Designer | UX/UI Designer',
 	})
 </script>
 
@@ -15,29 +26,32 @@
 		<section class="flex flex-col gap-6">
 			<span class="flex items-center gap-2">
 				<NuxtImg src="/img/avatar.png" alt="Avatar" width="32" height="32" format="webp" class="rounded-full" />
-				<span class="flex items-center gap-1.5 bg-green-50 rounded-full pl-3.5 pr-4 h-8 justify-center w-fit border border-green-600">
+				<span class="flex justify-center items-center gap-1.5 bg-green-50 pr-4 pl-3.5 border border-green-600 rounded-full w-fit h-8">
 					<Icon name="ph:circle-fill" size="6" class="text-green-700 animate-pulse" />
-					<p class="text-sm text-green-700">{{ $t('home.disponibility') }}</p>
+					<p class="text-green-700 text-sm">{{ $t('home.disponibility') }}</p>
 				</span>
 			</span>
 			<h5 class="md:text-6xl">{{ $t('home.intro') }}</h5>
-			<span class="flex gap-2 mt-2 items-center">
-				<p class="text-sm px-4 py-1.5 bg-white rounded-full border border-zinc-200 h-8 center justify-center w-fit">PRODUCT</p>
-				<p class="text-sm px-4 py-1.5 bg-white rounded-full border border-zinc-200 h-8 center justify-center w-fit">UX/UI</p>
-				<p class="text-sm px-4 py-1.5 bg-white rounded-full border border-zinc-200 h-8 center justify-center w-fit">BRANDING</p>
-				<span class="flex items-center gap-1 bg-linear-[-90deg,#0047FF_0%,#00B1FD_97%] rounded-full pl-3 pr-4 h-7.5 justify-center w-fit">
+			<span class="flex items-center gap-2 mt-2">
+				<p class="justify-center bg-white px-4 py-1.5 border border-zinc-200 rounded-full w-fit h-8 text-sm center">
+					PRODUCT</p>
+				<p class="justify-center bg-white px-4 py-1.5 border border-zinc-200 rounded-full w-fit h-8 text-sm center">
+					UX/UI</p>
+				<p class="justify-center bg-white px-4 py-1.5 border border-zinc-200 rounded-full w-fit h-8 text-sm center">
+					BRANDING</p>
+				<span class="flex justify-center items-center gap-1 bg-linear-[-90deg,#0047FF_0%,#00B1FD_97%] pr-4 pl-3 rounded-full w-fit h-7.5">
 					<img src="../assets/icons/sparkle.svg" width="16" height="16" alt="sparkle icon">
-					<p class="text-sm text-white">AI</p>
+					<p class="text-white text-sm">AI</p>
 				</span>
 			</span>
 		</section>
 		<!-- Cases -->
 		<section class="flex flex-col gap-6">
-			<div class="flex gap-6 justify-between">
+			<div class="flex justify-between gap-6">
 				<h4>{{ $t('home.cases') }}</h4>
 				<NuxtLink to="/cases" class="btn-secondary">{{ $t('home.seeMore') }}</NuxtLink>
 			</div>
-			<section v-if="cases?.length" id="cardsbox" class="flex flex-col md:flex-row gap-6">
+			<section v-if="cases?.length" id="cardsbox" class="flex md:flex-row flex-col gap-6">
 				<VueCase v-for="item in cases" :key="item._id" :item="item" />
 			</section>
 		</section>

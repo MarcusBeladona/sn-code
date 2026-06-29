@@ -1,6 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import tailwindcss from "@tailwindcss/vite";
 
+declare const process: {
+	env: Record<string, string | undefined>;
+};
+
 const sanityProjectId = 'zt4joqnt'
 const sanityDataset = 'production'
 

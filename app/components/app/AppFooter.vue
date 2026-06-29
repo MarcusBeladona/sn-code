@@ -3,31 +3,35 @@
 		{ label: 'GitHub', url: 'https://github.com/marcusbeladona' },
 		{ label: 'LinkedIn', url: 'https://www.linkedin.com/in/marcusbeladona/' },
 	]
+
+	const scrollToTop = () => {
+		window.scrollTo({ top: 0, behavior: 'smooth' })
+	}
 </script>
 
 <template>
 	<footer class="flex flex-col gap-36 w-full">
 		<section id="contact" class="flex flex-col gap-6">
-			<div class="flex gap-6 justify-between">
+			<div class="flex justify-between gap-6">
 				<h4>{{ $t('footer.contact') }}</h4>
-				<button aria-label="Go to top" class="btn-secondary p-0">
+				<button aria-label="Back to Top" @click="scrollToTop" class="p-0 btn-secondary">
 					<Icon name="ph:arrow-up" />
 				</button>
 			</div>
 			<hr class="border-dashed text-zinc-300">
-			<section class="grid grid-cols-12 gap-6 justify-between">
+			<section class="justify-between gap-6 grid grid-cols-12">
 				<section class="flex flex-col col-span-6">
-					<h5 class="underline h-10 content-center">marcusbeladona@gmail.com</h5>
-					<h6 class="text-zinc-700 h-10 content-center">+55 (88) 9 8859-4402</h6>
+					<h5 class="content-center h-10 underline">marcusbeladona@gmail.com</h5>
+					<h6 class="content-center h-10 text-zinc-700">+55 (88) 9 8859-4402</h6>
 				</section>
 				<section class="flex flex-col col-span-3">
-					<NuxtLink to="/" class="btn-link -ml-4">Home</NuxtLink>
-					<NuxtLink to="/cases" class="btn-link -ml-4">{{ $t('footer.cases') }}</NuxtLink>
-					<!-- <NuxtLink to="" class="btn-link -ml-4">{{ $t('footer.blog') }}</NuxtLink> -->
+					<NuxtLink to="/" class="-ml-4 btn-link">Home</NuxtLink>
+					<NuxtLink to="/cases" class="-ml-4 btn-link">{{ $t('footer.cases') }}</NuxtLink>
+					<!-- <NuxtLink to="" class="-ml-4 btn-link">{{ $t('footer.blog') }}</NuxtLink> -->
 				</section>
 				<section class="flex flex-col col-span-3">
-					<NuxtLink to="/about" class="btn-link -ml-4">{{ $t('footer.about') }}</NuxtLink>
-					<a href="#contact" class="btn-link -ml-4">{{ $t('footer.contact') }}</a>
+					<NuxtLink to="/about" class="-ml-4 btn-link">{{ $t('footer.about') }}</NuxtLink>
+					<a href="#contact" class="-ml-4 btn-link">{{ $t('footer.contact') }}</a>
 				</section>
 			</section>
 		</section>
