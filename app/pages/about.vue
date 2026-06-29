@@ -45,7 +45,7 @@
 				<div class="col-start-7 col-span-6 relative">
 					<NuxtImg src="img/study-img.png" class="w-full rounded-3xl" />
 					<span class="flex w-full justify-between items-end absolute p-6 left-0 bottom-0">
-						<span class="flex gap-6 items-end">
+						<span class="flex flex-col md:flex-row gap-6 md:items-end">
 							<NuxtImg src="img/ufc-logo.jpg" class="w-12 h-12 rounded-xl" />
 							<span class="flex flex-col">
 								<p class="text-white">UFC</p>

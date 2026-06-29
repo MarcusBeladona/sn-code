@@ -24,7 +24,7 @@
 				</span>
 			</span>
 			<h5 class="md:text-5xl lg:text-6xl">{{ $t('home.intro') }}</h5>
-			<span class="flex items-center gap-2 mt-2">
+			<span class="flex items-center gap-2 mt-2 flex-wrap">
 				<p class="badge">PRODUCT</p>
 				<p class="badge">UX/UI</p>
 				<p class="badge">BRANDING</p>
