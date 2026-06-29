@@ -73,7 +73,7 @@
 
 			<section class="flex flex-col w-full">
 				<template v-for="value in item.body" :key="value._key">
-					<SanityImage v-if="value._type === 'imageBlock'" :asset-id="value.image.asset._ref" :alt="item.title" format="webp" quality="100" sizes="100vw" class="w-full" />
+					<SanityImage v-if="value._type === 'imageBlock'" :asset-id="value.image.asset._ref" :alt="item.title" format="webp" quality="100" class="w-full" />
 					<SanityFile v-else-if="value._type === 'videoBlock'" :asset-id="value.video.asset._ref">
 						<template #default="{ src }">
 							<video autoplay loop muted width="100%" preload="metadata" :alt="value.title">
