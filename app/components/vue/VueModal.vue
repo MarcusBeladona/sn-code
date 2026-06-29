@@ -47,7 +47,7 @@
 		<section class="relative flex flex-col gap-12 lg:gap-36 w-full max-w-360 py-0 lg:py-36 mx-auto">
 
 			<section class="flex flex-col gap-6 text-white px-6 xl:px-0 pt-10">
-				<h3 class="">{{ item.title }}</h3>
+				<h3 class="text-3xl md:text-4xl">{{ item.title }}</h3>
 				<span class="flex gap-2">
 					<span v-for="tag in item.tags" :key="tag" class="flex gap-2">
 						<p class="text-sm uppercase text-white">{{ tag }}</p>
