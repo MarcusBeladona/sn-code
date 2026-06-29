@@ -12,6 +12,19 @@
 		ogImage: item.value?.thumb?.asset?.url,
 	})
 
+	const showModal = ref(false)
+	function toggleModal() {
+		showModal.value = !showModal.value
+	}
+
+	watch(showModal, (value) => {
+		document.body.style.overflow = value ? 'hidden' : ''
+	})
+
+	onBeforeUnmount(() => {
+		document.body.style.overflow = ''
+	})
+
 	const formattedRelease = computed(() => {
 		const raw = item?.value?.release
 		if (!raw) return ''
@@ -26,10 +39,29 @@
 		}
 		return `${monthCap} ${year}`
 	})
+
+	const shareData = {
+		title: item.value?.title || 'Marcus Beladona',
+		text: item.value?.description || 'Case Study',
+		url: useRoute().fullPath,
+	}
+
+	const handleShare = async () => {
+		try {
+			if (navigator.share) {
+				await navigator.share(shareData)
+			} else {
+				await navigator.clipboard.writeText(shareData.url)
+			}
+		} catch (error) {
+			console.error('Error sharing:', error)
+		}
+	}
+
 </script>
 
 <template>
-	<main class="flex flex-col items-center gap-36 w-full">
+	<main class="flex flex-col items-center gap-36 max-w-200">
 		<!-- Header -->
 		<section class="flex flex-col gap-6 w-full">
 			<h3 class="md:col-span-8 md:col-start-3">{{ item.title }}</h3>
@@ -45,25 +77,21 @@
 					</span>
 				</span>
 				<span class="flex gap-2">
-					<button class="btn-secondary">{{ $t('case.showcase') }}</button>
-					<button class="p-0 btn-secondary" aria-label="share">
-						<Icon name="ph:share" />
+					<button class="btn-secondary" aria-label="share" @click="handleShare">
+						{{ $t('case.share') }}
 					</button>
 				</span>
 			</div>
 		</section>
 		<!-- Body -->
-		<section class="flex flex-col bg-black w-full">
-			<template v-for="value in item.body" :key="value._key">
-				<SanityImage v-if="value._type === 'imageBlock'" :asset-id="value.image.asset._ref" :alt="item.title" format="webp" class="w-full" />
-				<SanityFile v-else-if="value._type === 'videoBlock'" :asset-id="value.video.asset._ref">
-					<template #default="{ src }">
-						<video autoplay loop muted width="100%" preload="metadata" :alt="value.title">
-							<source :src="src" type="video/webm" />
-						</video>
-					</template>
-				</SanityFile>
-			</template>
+		<section @click="toggleModal" class="flex flex-col w-full bg-black rounded-3xl cursor-pointer hover:ring-zinc-300 hover:-translate-y-1 animate-enter duration-150 overflow-clip justify-center items-center">
+			<SanityImage v-if="item.thumb" :asset-id="item.thumb.asset._ref" :alt="item.title" format="webp" class="w-full opacity-30" />
+			<button class="btn-secondary absolute" aria-label="view details">
+				<p>{{ $t('case.showcase') }}</p>
+			</button>
 		</section>
+
+		<!-- Case Modal -->
+		<VueModal :item="item" v-if="showModal" @close-modal="toggleModal" />
 	</main>
 </template>

@@ -19,7 +19,7 @@
 				</button>
 			</div>
 			<hr class="border-dashed text-zinc-300">
-			<section class="justify-between gap-6 grid grid-cols-12">
+			<section class="justify-between flex flex-col gap-6 md:grid grid-cols-12">
 				<section class="flex flex-col col-span-6">
 					<h5 class="content-center h-10 underline">marcusbeladona@gmail.com</h5>
 					<h6 class="content-center h-10 text-zinc-700">+55 (88) 9 8859-4402</h6>

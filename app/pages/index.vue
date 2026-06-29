@@ -1,15 +1,7 @@
 <script setup>
 	const language = useSanityLanguage()
 	const query = groq`*[_type == "case" && bookmark == true && language == $language]
-  | order(orderRank) {
-    _id,
-    title,
-    slug,
-    description,
-    tags,
-    release,
-    thumb
-  }`
+  | order(orderRank)`
 	const { data: cases } = await useSanityQuery(query, { language })
 
 	useSeoMeta({
@@ -21,7 +13,7 @@
 </script>
 
 <template>
-	<main class="flex flex-col gap-36">
+	<main class="flex flex-col gap-24 lg:gap-36">
 		<!-- Intro -->
 		<section class="flex flex-col gap-6">
 			<span class="flex items-center gap-2">
@@ -31,15 +23,12 @@
 					<p class="text-green-700 text-sm">{{ $t('home.disponibility') }}</p>
 				</span>
 			</span>
-			<h5 class="md:text-6xl">{{ $t('home.intro') }}</h5>
+			<h5 class="md:text-5xl lg:text-6xl">{{ $t('home.intro') }}</h5>
 			<span class="flex items-center gap-2 mt-2">
-				<p class="justify-center bg-white px-4 py-1.5 border border-zinc-200 rounded-full w-fit h-8 text-sm center">
-					PRODUCT</p>
-				<p class="justify-center bg-white px-4 py-1.5 border border-zinc-200 rounded-full w-fit h-8 text-sm center">
-					UX/UI</p>
-				<p class="justify-center bg-white px-4 py-1.5 border border-zinc-200 rounded-full w-fit h-8 text-sm center">
-					BRANDING</p>
-				<span class="flex justify-center items-center gap-1 bg-linear-[-90deg,#0047FF_0%,#00B1FD_97%] pr-4 pl-3 rounded-full w-fit h-7.5">
+				<p class="badge">PRODUCT</p>
+				<p class="badge">UX/UI</p>
+				<p class="badge">BRANDING</p>
+				<span class="badge bg-linear-[-90deg,#0047FF_0%,#00B1FD_97%] pr-4 pl-3 gap-1 border-none h-7.5">
 					<img src="../assets/icons/sparkle.svg" width="16" height="16" alt="sparkle icon">
 					<p class="text-white text-sm">AI</p>
 				</span>

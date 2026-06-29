@@ -59,10 +59,11 @@
 	},
 	"case": {
 		"published": "Publicado",
-		"showcase": "Showcase",
+		"showcase": "Ver Projeto",
 		"seeMore": "Ver Mais",
 		"notFound": "Case não encontrado.",
-		"blog": "Blog"
+		"blog": "Blog",
+		"share": "Compartilhar"
 	},
 	"footer": {
 		"contact": "Contato",

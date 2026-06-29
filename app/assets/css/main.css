@@ -98,7 +98,7 @@
 
 @layer base {
 	#__nuxt {
-		@apply max-w-332 items-center flex px-6 flex-col gap-36 mx-auto;
+		@apply max-w-332 items-center flex px-6 flex-col gap-24 lg:gap-36 mx-auto;
 	}
 	section, main {
 		@apply animate-enter;
@@ -170,4 +170,8 @@
 
 @utility btn {
 	@apply rounded-full font-normal text-base min-w-10 min-h-10 px-4 w-fit;
+}
+
+@utility badge {
+	@apply badge-xl text-sm text-zinc-700 bg-white border-zinc-200;
 }
