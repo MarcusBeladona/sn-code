@@ -35,7 +35,7 @@
 		</section>
 		<!-- Cases -->
 		<section class="flex flex-col gap-6">
-			<div class="flex justify-between gap-6">
+			<div class="flex justify-between items-center gap-6">
 				<h2>{{ $t('home.cases') }}</h2>
 				<NuxtLink to="/cases" class="btn-secondary">{{ $t('home.seeMore') }}</NuxtLink>
 			</div>

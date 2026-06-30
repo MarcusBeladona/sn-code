@@ -12,7 +12,7 @@
 <template>
 	<footer class="flex flex-col gap-36 w-full">
 		<section id="contact" class="flex flex-col gap-6">
-			<div class="flex justify-between gap-6">
+			<div class="flex justify-between items-center gap-6">
 				<h2>{{ $t('footer.contact') }}</h2>
 				<button aria-label="Back to Top" @click="scrollToTop" class="p-0 btn-secondary">
 					<Icon name="ph:arrow-up" />
