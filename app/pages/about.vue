@@ -19,7 +19,7 @@
 	<main class="flex flex-col gap-24 lg:gap-36">
 		<section class="flex flex-col gap-6 ">
 			<div class="flex gap-6 items-end">
-				<h4 class="text-nowrap">{{ $t('about.title') }}</h4>
+				<h2 class="text-nowrap">{{ $t('about.title') }}</h2>
 				<hr class="border-dashed text-zinc-300 w-full pb-3.5">
 			</div>
 			<section class="flex flex-col lg:grid grid-cols-12 gap-6">
@@ -32,12 +32,12 @@
 		</section>
 		<section class="w-full">
 			<div class="col-span-full flex flex-col gap-6 md:flex-row">
-				<CardBlock v-for="item in specialties" :key="item.title" :icon="item.icon" :title="item.title" :description="item.description" class="flex-1 rounded-2xl bg-zinc-100" />
+				<CardBlock v-for="item in specialties" :key="item.title" :icon="item.icon" :title="item.title" :description="item.description" class="flex-1 rounded-2xl" />
 			</div>
 		</section>
 		<section class="flex flex-col gap-6">
 			<div class="flex gap-6 items-end">
-				<h4 class="text-nowrap">{{ $t('about.academic') }}</h4>
+				<h2 class="text-nowrap">{{ $t('about.academic') }}</h2>
 				<hr class="border-dashed text-zinc-300 w-full pb-3.5">
 			</div>
 			<section class="flex flex-col lg:grid grid-cols-12 gap-6">
@@ -48,8 +48,8 @@
 						<span class="flex flex-col md:flex-row gap-6 md:items-end">
 							<NuxtImg src="img/ufc-logo.jpg" class="w-12 h-12 rounded-xl" />
 							<span class="flex flex-col">
-								<p class="text-white">UFC</p>
-								<h6 class="text-white">{{ $t('about.degree') }}</h6>
+								<h5 class="text-white">UFC</h5>
+								<p class="text-white">{{ $t('about.degree') }}</p>
 							</span>
 						</span>
 						<p class="text-white">2020 - 2024</p>
@@ -59,7 +59,7 @@
 		</section>
 		<section class="flex flex-col gap-6">
 			<div class="flex gap-6 items-end">
-				<h4 class="text-nowrap">{{ $t('about.professional') }}</h4>
+				<h2 class="text-nowrap">{{ $t('about.professional') }}</h2>
 				<hr class="border-dashed text-zinc-300 w-full pb-3.5">
 			</div>
 			<section class="flex flex-col lg:grid grid-cols-12 gap-6">
@@ -69,8 +69,8 @@
 						<span class="flex flex-col md:flex-row gap-6">
 							<NuxtImg :src="job.logo" class="w-12 h-12 rounded-xl" />
 							<span class="flex flex-col">
-								<p>{{ job.company }}</p>
-								<h6>{{ job.role }}</h6>
+								<h5>{{ job.company }}</h5>
+								<p>{{ job.role }}</p>
 							</span>
 						</span>
 						<p>{{ job.period }}</p>

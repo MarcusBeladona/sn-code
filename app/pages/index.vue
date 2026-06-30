@@ -23,11 +23,10 @@
 					<p class="text-green-700 text-sm">{{ $t('home.disponibility') }}</p>
 				</span>
 			</span>
-			<h5 class="md:text-5xl lg:text-6xl">{{ $t('home.intro') }}</h5>
+			<h4 class="text-hero">{{ $t('home.intro') }}</h4>
 			<span class="flex items-center gap-2 mt-2 flex-wrap">
 				<p class="badge">PRODUCT</p>
 				<p class="badge">UX/UI</p>
-				<p class="badge">BRANDING</p>
 				<span class="badge bg-linear-[-90deg,#0047FF_0%,#00B1FD_97%] pr-4 pl-3 gap-1 border-none h-7.5">
 					<img src="../assets/icons/sparkle.svg" width="16" height="16" alt="sparkle icon">
 					<p class="text-white text-sm">AI</p>
@@ -37,7 +36,7 @@
 		<!-- Cases -->
 		<section class="flex flex-col gap-6">
 			<div class="flex justify-between gap-6">
-				<h4>{{ $t('home.cases') }}</h4>
+				<h2>{{ $t('home.cases') }}</h2>
 				<NuxtLink to="/cases" class="btn-secondary">{{ $t('home.seeMore') }}</NuxtLink>
 			</div>
 			<section v-if="cases?.length" id="cardsbox" class="flex md:flex-row flex-col gap-6">

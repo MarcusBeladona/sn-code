@@ -10,14 +10,14 @@
   default: true;
   prefersdark: false;
   color-scheme: "light";
-  --color-base-100: var(--color-zinc-50);
-  --color-base-200: var(--color-zinc-100);
-  --color-base-300: var(--color-zinc-200);
-  --color-base-content: var(--color-zinc-900);
-  --color-primary: var(--color-zinc-900);
+  --color-base-100: var(--color-slate-50);
+  --color-base-200: var(--color-slate-100);
+  --color-base-300: var(--color-slate-200);
+  --color-base-content: var(--color-slate-900);
+  --color-primary: var(--color-slate-900);
   --color-primary-content: var(--color-white);
   --color-secondary: var(--color-white);
-  --color-secondary-content: var(--color-zinc-900);
+  --color-secondary-content: var(--color-slate-900);
   --color-accent: oklch(48% 0.243 264.376);
   --color-accent-content: oklch(100% 0 0);
   --color-neutral: oklch(14% 0.005 285.823);
@@ -40,11 +40,22 @@
   --noise: 0;
 }
 
-/* Theme */
+/* Tailwind Theme */
 @theme {
 	--font-sans: 'Inter', sans-serif;
 	--font-display: 'Plus Jakarta Sans', sans-serif;
 	--font-mono: 'Fira Code', monospace;
+
+	--text-h1: 3rem;
+	--text-h2: 1.875rem;
+	--text-h3: 1.5rem;
+	--text-h4: 1.25rem;
+	--text-h5: 1rem;
+	--text-h6: 0.875rem;
+	--text-body: 1rem;
+	--text-caption: 0.875rem;
+	--text-overline: 0.75rem;
+
 	/* Animations */
 	--animate-enter: enter 300ms ease-in-out;
 	@keyframes enter {
@@ -103,8 +114,8 @@
 	section, main {
 		@apply animate-enter;
 	}
-	p {
-		@apply text-zinc-700 leading-tight text-pretty;
+	html {
+		@apply scroll-smooth;
 	}
 	h1,
 	h2,
@@ -112,28 +123,28 @@
 	h4,
 	h5,
 	h6 {
-		@apply font-normal leading-tight font-display text-pretty;
+		@apply font-normal leading-tight font-display text-pretty h-fit;
 	}
 	h1 {
-		@apply text-6xl;
+		@apply text-h2 lg:text-h1;
 	}
 	h2 {
-		@apply text-5xl;
+		@apply text-h3 lg:text-h2;
 	}
 	h3 {
-		@apply text-4xl;
+		@apply text-h4 lg:text-h3;
 	}
 	h4 {
-		@apply text-3xl;
+		@apply text-h4;
 	}
 	h5 {
-		@apply text-2xl;
+		@apply text-h5 font-sans;
 	}
 	h6 {
-		@apply text-xl;
+		@apply text-h6 font-sans;
 	}
-	html {
-		@apply scroll-smooth;
+	p {
+		@apply text-base-content/70 leading-tight text-pretty;
 	}
 }
 
@@ -151,27 +162,28 @@
 @utility autohide {
 	@apply hover:opacity-100 transition-opacity duration-300;
 }
-
 @utility edge {
-	@apply bg-white border border-zinc-200 rounded-box;
-}
-
-@utility btn-primary {
-	@apply btn hover:bg-white hover:text-zinc-900 hover:border-zinc-300;
-}
-
-@utility btn-secondary {
-	@apply btn border border-zinc-200 hover:border-zinc-300;
-}
-
-@utility btn-link {
-	@apply btn no-underline bg-none text-zinc-700 hover:text-zinc-900;
+	@apply bg-base-200 border border-base-300 rounded-box;
 }
 
 @utility btn {
-	@apply rounded-full font-normal text-base min-w-10 min-h-10 px-4 w-fit;
+	@apply rounded-full font-normal text-body min-w-10 min-h-10 px-4 w-fit;
+}
+@utility btn-primary {
+	@apply btn hover:bg-white hover:text-base-content hover:border-base-300;
+}
+@utility btn-secondary {
+	@apply btn border border-base-300 hover:bg-base-200;
+}
+@utility btn-link {
+	@apply btn no-underline bg-none text-base-content/70 hover:text-base-content;
 }
 
 @utility badge {
-	@apply badge-xl text-sm text-zinc-700 bg-white border-zinc-200;
+	@apply badge-xl text-caption text-base-content/70 bg-white border-base-300;
+}
+
+@utility text-hero {
+	font-size: 1.4375rem;
+	font-size: clamp(1.4375rem, -0.2875000000000001rem + 5.75vw, 4.3125rem);
 }

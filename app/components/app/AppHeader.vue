@@ -59,6 +59,6 @@
 	@reference "@/assets/css/main.css";
 
 	.router-link-exact-active {
-		@apply cursor-default bg-zinc-100;
+		@apply cursor-default bg-base-200;
 	}
 </style>
