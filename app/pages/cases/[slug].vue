@@ -43,7 +43,7 @@
 	const shareData = {
 		title: item.value?.title || 'Marcus Beladona',
 		text: item.value?.description || 'Case Study',
-		url: useRoute().fullPath,
+		url: 'https://marcusbeladona.com/cases/' + slug || 'https://marcusbeladona.com',
 	}
 
 	const handleShare = async () => {

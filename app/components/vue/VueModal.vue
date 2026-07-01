@@ -6,12 +6,13 @@
 	const shareData = {
 		title: props.item.title || 'Marcus Beladona',
 		text: props.item.description || 'Case Study',
-		url: useRoute().fullPath,
+		url: 'https://marcusbeladona.com/cases/' + props.item.slug.current || 'https://marcusbeladona.com',
 	}
 
 	const handleShare = async () => {
 		try {
 			if (navigator.share) {
+				console.log(shareData);
 				await navigator.share(shareData)
 			} else {
 				await navigator.clipboard.writeText(shareData.url)
@@ -35,19 +36,26 @@
 		}
 		return `${monthCap} ${year}`
 	})
+
+	const scrollToTop = () => {
+		document.getElementById('modal-title')?.scrollIntoView({ behavior: 'smooth' })
+	}
 </script>
 
 <template>
 	<dialog @click.self="$emit('closeModal')" class="fixed inset-0 z-50 h-screen bg-black/90 backdrop-blur-lg flex flex-col w-full overflow-y-auto scrollbar-thumb-white/30">
+		<span class="flex flex-col gap-2 p-6 sticky top-0 w-full items-end z-100">
+			<button @click="$emit('closeModal')" class="btn-primary p-0 bg-black" aria-label="close">
+				<Icon name="ph:x" />
+			</button>
+			<button aria-label="Back to Top" @click="scrollToTop" class="p-0 btn-primary bg-black">
+				<Icon name="ph:arrow-up" />
+			</button>
+		</span>
+		<section class="relative flex flex-col gap-12 lg:gap-36 w-full max-w-360 pt-0 pb-36 mx-auto">
 
-		<button @click="$emit('closeModal')" class="sticky self-end right-6 top-6 p-0 btn-tertiary z-50" aria-label="close">
-			<Icon name="ph:x" />
-		</button>
-
-		<section class="relative flex flex-col gap-12 lg:gap-36 w-full max-w-360 py-0 lg:py-36 mx-auto">
-
-			<section class="flex flex-col gap-6 text-white px-6 xl:px-0 pt-10">
-				<h3 class="text-3xl md:text-4xl">{{ item.title }}</h3>
+			<section class="flex flex-col gap-6 text-white px-6 xl:px-0 pt-0">
+				<h3 id="modal-title" class="text-3xl md:text-4xl">{{ item.title }}</h3>
 				<span class="flex gap-2">
 					<span v-for="tag in item.tags" :key="tag" class="flex gap-2">
 						<p class="text-sm uppercase text-white">{{ tag }}</p>
@@ -73,14 +81,15 @@
 
 			<section class="flex flex-col w-full">
 				<template v-for="value in item.body" :key="value._key">
-					<SanityImage v-if="value._type === 'imageBlock'" :asset-id="value.image.asset._ref" :alt="item.title" format="webp" quality="100" class="w-full" />
-					<SanityFile v-else-if="value._type === 'videoBlock'" :asset-id="value.video.asset._ref">
+					<SanityImage v-if="value._type === 'image'" :asset-id="value.asset._ref" :alt="item.title" format="webp" quality="100" class="w-full" />
+					<SanityFile v-else-if="value._type === 'video'" :asset-id="value.asset._ref">
 						<template #default="{ src }">
 							<video autoplay loop muted width="100%" preload="metadata" :alt="value.title">
 								<source :src="src" type="video/webm" />
 							</video>
 						</template>
 					</SanityFile>
+					<iframe v-else-if="value._type === 'iframe'" :src="value.url" class="w-full aspect-video" frameborder="0" allowfullscreen sandbox="allow-scripts allow-same-origin"></iframe>
 				</template>
 			</section>
 
