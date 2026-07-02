@@ -138,13 +138,17 @@
 		@apply text-h4;
 	}
 	h5 {
-		@apply text-h5 font-sans;
+		@apply text-h5;
 	}
 	h6 {
-		@apply text-h6 font-sans;
+		@apply text-h6;
 	}
 	p {
-		@apply text-base-content/70 leading-tight text-pretty;
+		@apply text-base-content/80 leading-normal text-pretty;
+	}
+
+	strong {
+		@apply font-semibold text-base-content;
 	}
 }
 

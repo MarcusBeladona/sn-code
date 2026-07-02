@@ -1,15 +1,14 @@
 <script setup>
-	import CarouselBlock from './CarouselBlock.vue'
-
 	const props = defineProps({
 		body: {
 			type: Object,
 			required: true
 		},
 	})
+
 	const components = {
 		types: {
-			figure: props => h(FigureBlock, {
+			imageBlock: props => h(FigureBlock, {
 				data: props.value,
 			}),
 			card: props => h(CardBlock, {
@@ -34,6 +33,7 @@
 		}
 	}
 
+	// Observer for Highlight Animation
 	onMounted(() => {
 		const observer = new IntersectionObserver((entries) => {
 			entries.forEach((e) => {
@@ -51,17 +51,13 @@
 </script>
 
 <template>
-	<div class="prose prose-zinc prose-a:text-blue-700 max-w-max w-full flex flex-col gap-12">
+	<section class="w-full flex flex-col gap-6 items-center">
 		<SanityContent :value="body" :components="components" />
-	</div>
+	</section>
 </template>
 
 <style scoped>
 	@reference "@/assets/css/main.css";
-
-	:deep(*) {
-		margin: 0px;
-	}
 
 	:deep(.highlight) {
 		@apply text-stone-900 inline pb-0.5;
@@ -76,11 +72,15 @@
 	}
 
 	:deep(:where(p, h1, h2, h3, h4, h5, h6, ul, ol, blockquote, pre, li, ol)) {
-		@apply col-span-8 col-start-3 text-zinc-900;
+		@apply max-w-178 w-full;
+	}
+
+	:deep(:where(h1, h2, h3)):not(:first-child) {
+		@apply mt-18;
 	}
 
 	:deep(code) {
-		@apply px-2 pt-px font-normal bg-zinc-100 rounded-full text-red-600 border border-zinc-200;
+		@apply px-3 pt-px font-normal bg-zinc-100 rounded-full text-red-600 border border-zinc-200;
 	}
 
 	:deep(code)::before,
@@ -88,5 +88,12 @@
 		content: none;
 	}
 
+	:deep(ul) {
+		@apply prose list-disc list-inside;
+	}
+
+	:deep(ol) {
+		@apply prose list-decimal list-inside;
+	}
 
 </style>
