@@ -12,29 +12,13 @@
 	},
 	"about": {
 		"title": "About Me",
-		"bio1": "I'm a Digital Designer with 4+ years of experience in usability, design systems, and digital product creation focused on consistency and user experience. I hold a degree in Digital Design from the Federal University of Ceará (UFC), where I studied Human-Computer Interaction, usability, accessibility, digital product creation, front-end development, and other areas.",
-		"bio2": "I believe in products that combine functionality, aesthetics, and intuitiveness without ignoring people, their contexts, and the reality they live in. If you'd like to learn more about my work or discuss opportunities, I'm available.",
-		"academic": "Academic",
-		"academicText": "Graduated in Digital Design with studies in Human-Computer Interaction, Prototyping, UX, Front-end Development, Mobile, Information Architecture, Typography, among others.",
-		"degree": "Digital Design",
-		"professional": "Professional",
-		"professionalText": "Over four years working in user experience and interface design, with a focus on usability, accessibility, and design systems for design and development teams.",
+		"bio1": "Hi! I'm Marcus Beladona, a Brazilian designer with over 5 years of experience creating digital products. Throughout my career, I've worked across UX/UI Design, Product Design, Design Systems, and Front-end, taking products from early ideas to implementation. In recent years, I've also been exploring AI, Conversational Design, and how agents can help solve real-world problems.",
+		"bio2": "I believe great products bring together functionality, aesthetics, and ease of use without losing sight of the people who use them, the contexts they're in, and the challenges they face. If you'd like to learn more about my work and chat about opportunities or projects, I'd be happy to connect!",
+		"academic": "Academic", "academicText": "I hold a Bachelor's degree in Digital Design from the Federal University of Ceará (UFC). Throughout my studies, I explored Human–Computer Interaction (HCI), UX Design, prototyping, information architecture, front-end development, and other disciplines related to digital product design.", "degree": "Digital Design", "professional": "Professional", "professionalText": "More than 5 years of experience designing digital products with a focus on user experience, interfaces, and design systems. I've contributed to projects involving digital accessibility, telecommunications, conversational experiences, and more.",
 		"specialties": [
-			{
-				"icon": "ph:devices",
-				"title": "Research & Strategy",
-				"description": "Creating intuitive and pleasant interfaces focused on the best user experience based on business strategy."
-			},
-			{
-				"icon": "ph:bounding-box",
-				"title": "UI & Prototyping",
-				"description": "Accessible interfaces with navigable prototypes to validate flows before development."
-			},
-			{
-				"icon": "ph:circles-three",
-				"title": "Design Systems",
-				"description": "Component standardization and documentation to maintain consistency across teams."
-			}
+			{"icon": "ph:devices", "title": "Product Design", "description": "From problem discovery to implementation, creating digital products centered on user needs and aligned with business goals." }, 
+			{ "icon": "ph:bounding-box", "title": "Design & Development", "description": "Working closely with stakeholders and development teams to turn interfaces into performant digital products."},
+			{ "icon": "ph:circles-three", "title": "Design Systems", "description": "Building components, design tokens, and documentation to ensure consistency and scalability across products and teams." }
 		],
 		"experience": [
 			{

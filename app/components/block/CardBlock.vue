@@ -19,7 +19,7 @@
 		</span>
 		<span class="flex flex-col gap-2">
 			<h4>{{ title }}</h4>
-			<p>{{ description }}</p>
+			<p class="">{{ description }}</p>
 		</span>
 	</article>
 </template>
