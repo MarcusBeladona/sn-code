@@ -1,23 +1,17 @@
 <script setup>
 	const props = defineProps({
-		fullSpan: {
-			type: Boolean,
-			default: true
-		},
-		items: {
-			type: Array,
-		},
+		data: { type: Object, required: true },
 	})
-	console.log(props.items);
-
-	const even = props.items.length % 2 === 0;
 </script>
 
 <template>
-	<span id="grid" :class="even ? 'grid-cols-2' : 'grid-cols-3'" class="grid gap-6 col-span-full">
-		<template v-for="item in items">
-			<SanityImage v-if="item._type == 'image'" :asset-id="item.asset._ref" class="col-span-1 rounded-2xl" />
-			<CardBlock v-else-if="item._type == 'card'" :icon="item.icon_name" :title="item.title" :description="item.description" :class="even ? 'rounded-3xl' : 'rounded-2xl'" class="col-span-1" />
+	<span class="w-full flex gap-6 justify-start items-start">
+		<template v-for="item in data.items">
+			<article class="w-full">
+				<FigureBlock v-if="item._type == 'figure'" :data="item" />
+				<VideoBlock v-else-if="item._type == 'video'" :data="item" class="m-0" />
+				<CardBlock v-else-if="item._type == 'cardBlock'" :data="item" />
+			</article>
 		</template>
 	</span>
 </template>

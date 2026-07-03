@@ -8,24 +8,17 @@
 
 	const components = {
 		types: {
-			imageBlock: props => h(FigureBlock, {
+			figureBlock: props => h(FigureBlock, {
 				data: props.value,
 			}),
-			card: props => h(CardBlock, {
-				icon: props.value.icon_name,
-				title: props.value.title,
-				description: props.value.description
+			videoBlock: props => h(VideoBlock, {
+				data: props.value,
 			}),
-			container: props => h(ContainerBlock, {
-				fullSpan: Boolean(props.value.fullSpan),
-				assetId: props.value.image.asset._ref,
+			cardBlock: props => h(CardBlock, {
+				data: props.value
 			}),
-			grid: props => h(GridBlock, {
-				fullSpan: props.value.fullspan,
-				items: props.value.items,
-			}),
-			carousel: props => h(CarouselBlock, {
-				data: props.value.hero[0],
+			gridBlock: props => h(GridBlock, {
+				data: props.value,
 			}),
 		},
 		marks: {
@@ -94,6 +87,14 @@
 
 	:deep(ol) {
 		@apply prose list-decimal list-inside;
+	}
+
+	:deep(p + figure) {
+		@apply mt-18;
+	}
+
+	:deep(figure + p) {
+		@apply mb-18;
 	}
 
 </style>
