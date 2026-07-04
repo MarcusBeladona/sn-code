@@ -49,7 +49,7 @@
 </script>
 
 <template>
-	<main class="flex flex-col items-center gap-36 w-full">
+	<main class="flex flex-col items-center gap-6 md:gap-36 w-full">
 		<!-- Header -->
 		<section class="flex flex-col gap-6 w-full max-w-178">
 			<h2 class="md:col-span-8 md:col-start-3">{{ item.title }}</h2>
@@ -71,6 +71,7 @@
 				</span>
 			</div>
 		</section>
+
 		<!-- Body -->
 		<RichTextBlock :body="item.body" />
 	</main>

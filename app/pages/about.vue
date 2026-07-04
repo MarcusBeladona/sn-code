@@ -2,7 +2,7 @@
 	const { tm, rt } = useI18n()
 
 	const specialties = computed(() => tm('about.specialties').map((item) => ({
-		icon: rt(item.icon),
+		iconName: rt(item.icon),
 		title: rt(item.title),
 		description: rt(item.description),
 	})))
@@ -32,7 +32,7 @@
 		</section>
 		<section class="w-full">
 			<div class="col-span-full flex flex-col gap-6 md:flex-row">
-				<CardBlock v-for="item in specialties" :key="item.title" :icon="item.icon" :title="item.title" :description="item.description" class="flex-1 rounded-2xl" />
+				<CardBlock v-for="item in specialties" :key="item.title" :data="item" class="flex-1 rounded-2xl" />
 			</div>
 		</section>
 		<section class="flex flex-col gap-6">

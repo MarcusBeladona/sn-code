@@ -154,10 +154,6 @@
 
 @layer components {
 
-	button {
-		@apply btn-primary;
-	}
-
 	.iconify {
 		font-size: 1.25em;
 	}

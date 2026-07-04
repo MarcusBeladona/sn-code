@@ -33,7 +33,7 @@
 				</ul>
 			</div>
 			<!-- Contact Button -->
-			<button @click="scrollToContact" class="hidden md:flex">{{ $t('nav.contact') }}</button>
+			<button @click="scrollToContact" class="btn-primary hidden md:flex">{{ $t('nav.contact') }}</button>
 			<!-- Mobile Menu Button -->
 			<div class="btn p-0 h-10 w-10 dropdown dropdown-bottom dropdown-end md:hidden">
 				<div tabindex="0" role="button" aria-label="menu-button" class="btn-primary p-0">

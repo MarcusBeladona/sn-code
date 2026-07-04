@@ -54,7 +54,6 @@
 
 	:deep(.highlight) {
 		@apply text-stone-900 inline pb-0.5;
-
 		background-image: linear-gradient(to right, #F3DBB4 0%, #F3DBB4 100%);
 		background-repeat: no-repeat;
 		background-size: 0% 100%;
@@ -64,12 +63,16 @@
 		animation: slide 2s ease-in-out forwards;
 	}
 
-	:deep(:where(p, h1, h2, h3, h4, h5, h6, ul, ol, blockquote, pre, li, ol)) {
+	:deep(:where(p, h1, h2, h3, h4, h5, h6, ul, ol, blockquote, pre, li)) {
 		@apply max-w-178 w-full;
 	}
 
 	:deep(:where(h1, h2, h3)):not(:first-child) {
-		@apply mt-18;
+		@apply md:mt-18;
+	}
+
+	:deep(h4:not(:first-child)) {
+		@apply md:mt-6;
 	}
 
 	:deep(code) {
@@ -89,12 +92,12 @@
 		@apply prose list-decimal list-inside;
 	}
 
-	:deep(p + figure) {
-		@apply mt-18;
+	:deep(p + .w-full) {
+		@apply md:mt-18;
 	}
 
-	:deep(figure + p) {
-		@apply mb-18;
+	:deep(.w-full + p) {
+		@apply md:mb-18;
 	}
 
 </style>
