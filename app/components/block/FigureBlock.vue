@@ -26,8 +26,8 @@
 		</figcaption>
 
 		<dialog :id="data._key" class="modal outline-none">
-			<div @click="closeModal" class="modal-box p-6 bg-transparent flex items-center justify-center rounded-none h-full w-full max-w-dvw max-h-dvh">
-				<SanityImage as="button" :asset-id="data.image.asset._ref" quality="100" format="webp" class="max-w-full max-h-full w-auto h-auto rounded-2xl" :class="data.border ? 'border border-base-300' : ''" />
+			<div @click="closeModal" class="modal-box bg-transparent flex items-center justify-center w-full h-full max-w-screen max-h-screen rounded-none">
+				<SanityImage :asset-id="data.image.asset._ref" quality="100" format="webp" class="max-w-full max-h-full h-auto lg:h-full object-contain rounded-xl md:rounded-2xl" :class="data.border ? 'border border-base-300' : ''" />
 			</div>
 		</dialog>
 

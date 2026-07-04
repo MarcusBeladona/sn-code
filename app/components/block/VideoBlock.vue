@@ -32,10 +32,10 @@
 		</figcaption>
 
 		<dialog :id="data._key" class="modal outline-none">
-			<div @click="closeModal" class="modal-box p-6 bg-transparent flex items-center justify-center rounded-none h-full w-full max-w-dvw max-h-dvh">
+			<div @click="closeModal" class="modal-box p-6 bg-transparent flex items-center justify-center rounded-none w-full h-full max-w-screen max-h-screen">
 				<SanityFile :asset-id="data.video.asset._ref">
 					<template #default="{ src }">
-						<video autoplay loop muted controls width="100%" preload="metadata" alt="video" class="rounded-2xl max-w-full max-h-full w-auto h-auto outline-none">
+						<video autoplay loop muted controls width="100%" preload="metadata" alt="video" class="max-w-full max-h-full w-fit h-auto lg:h-full object-contain rounded-xl  md:rounded-2xl outline-none">
 							<source :src="src" type="video/webm" />
 						</video>
 					</template>
