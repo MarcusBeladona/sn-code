@@ -19,7 +19,7 @@
 </script>
 
 <template>
-	<figure class="flex flex-col gap-3" :class="data.fullWidth ? 'w-full' : 'w-178'">
+	<figure class="flex flex-col gap-2" :class="data.fullWidth ? 'w-full' : 'w-178'">
 		<SanityFile :asset-id="data.video.asset._ref">
 			<template #default="{ src }">
 				<video autoplay loop muted width="100%" @click="handleClick" preload="metadata" alt="video" class="rounded-2xl cursor-pointer hover:scale-101 duration-150" :class="data.border ? 'border border-base-300' : ''">

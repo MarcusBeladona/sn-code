@@ -20,6 +20,9 @@
 			gridBlock: props => h(GridBlock, {
 				data: props.value,
 			}),
+			iframeBlock: props => h(IframeBlock, {
+				data: props.value,
+			}),
 		},
 		marks: {
 			highlight: (props) => h('span', { class: 'highlight' }, props.text)
@@ -97,7 +100,11 @@
 	}
 
 	:deep(.w-full + p) {
-		@apply md:mb-18;
+		@apply md:mt-18;
+	}
+
+	:deep(a) {
+		@apply underline text-blue-700 hover:text-base-content visited:text-purple-700;
 	}
 
 </style>

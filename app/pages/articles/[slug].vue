@@ -60,8 +60,8 @@
 				<span class="flex items-center gap-3">
 					<NuxtImg src="/img/avatar.png" alt="Avatar" width="32" height="32" format="webp" class="rounded-full" />
 					<span class="flex flex-col">
-						<p class="text-sm">{{ $t('case.published') }}</p>
-						<p class="text-zinc-900">{{ formattedRelease }}</p>
+						<p class="text-caption">{{ $t('case.published') }}</p>
+						<p class="text-base-content leading-tight">{{ formattedRelease }}</p>
 					</span>
 				</span>
 				<span class="flex gap-2">
