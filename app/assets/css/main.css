@@ -109,7 +109,7 @@
 
 @layer base {
 	#__nuxt {
-		@apply max-w-332 items-center flex px-6 flex-col gap-24 lg:gap-36 mx-auto;
+		@apply max-w-332 items-center flex px-6 flex-col gap-24 lg:gap-36 mx-auto antialiased;
 	}
 	section, main {
 		@apply animate-enter;
@@ -148,7 +148,7 @@
 	}
 
 	strong {
-		@apply font-semibold text-base-content;
+		@apply font-semibold text-base-content antialiased;
 	}
 }
 
