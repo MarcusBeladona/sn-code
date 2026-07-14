@@ -9,7 +9,7 @@
 		<!-- Cases -->
 		<section class="flex flex-col gap-6">
 			<div class="flex items-end gap-6">
-				<h2 class="text-nowrap">Cases</h2>
+				<h4 class="text-nowrap">Cases</h4>
 				<hr class="pb-3.5 border-dashed w-full text-zinc-300">
 			</div>
 			<section v-if="cases?.length" id="cardsbox" class="flex flex-col gap-6 lg:grid grid-cols-3">

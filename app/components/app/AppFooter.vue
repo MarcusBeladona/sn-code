@@ -13,7 +13,7 @@
 	<footer class="flex flex-col gap-36 w-full">
 		<section id="contact" class="flex flex-col gap-6">
 			<div class="flex justify-between items-center gap-6">
-				<h2>{{ $t('footer.contact') }}</h2>
+				<h4>{{ $t('footer.contact') }}</h4>
 				<button aria-label="Back to Top" @click="scrollToTop" class="p-0 btn-secondary">
 					<Icon name="ph:arrow-up" />
 				</button>
@@ -21,7 +21,7 @@
 			<hr class="border-dashed text-zinc-300">
 			<section class="justify-between flex flex-col gap-6 md:grid grid-cols-12">
 				<section class="flex flex-col col-span-6">
-					<h4 class="content-center h-10 underline">marcusbeladona@gmail.com</h4>
+					<h6 class="content-center h-10 underline">marcusbeladona@gmail.com</h6>
 					<p class="content-center h-10 text-zinc-700">+55 (88) 9 8859-4402</p>
 				</section>
 				<section class="flex flex-col col-span-3">

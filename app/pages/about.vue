@@ -19,7 +19,7 @@
 	<main class="flex flex-col gap-24 lg:gap-36">
 		<section class="flex flex-col gap-6 ">
 			<div class="flex gap-6 items-end">
-				<h2 class="text-nowrap">{{ $t('about.title') }}</h2>
+				<h4 class="text-nowrap">{{ $t('about.title') }}</h4>
 				<hr class="border-dashed text-zinc-300 w-full pb-3.5">
 			</div>
 			<section class="flex flex-col lg:grid grid-cols-12 gap-6">
@@ -37,7 +37,7 @@
 		</section>
 		<section class="flex flex-col gap-6">
 			<div class="flex gap-6 items-end">
-				<h2 class="text-nowrap">{{ $t('about.academic') }}</h2>
+				<h4 class="text-nowrap">{{ $t('about.academic') }}</h4>
 				<hr class="border-dashed text-zinc-300 w-full pb-3.5">
 			</div>
 			<section class="flex flex-col lg:grid grid-cols-12 gap-6">
@@ -59,7 +59,7 @@
 		</section>
 		<section class="flex flex-col gap-6">
 			<div class="flex gap-6 items-end">
-				<h2 class="text-nowrap">{{ $t('about.professional') }}</h2>
+				<h4 class="text-nowrap">{{ $t('about.professional') }}</h4>
 				<hr class="border-dashed text-zinc-300 w-full pb-3.5">
 			</div>
 			<section class="flex flex-col lg:grid grid-cols-12 gap-6">

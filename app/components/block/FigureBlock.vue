@@ -19,8 +19,8 @@
 </script>
 
 <template>
-	<figure class="flex flex-col gap-2" :class="data.fullWidth ? 'w-full' : 'w-178'">
-		<SanityImage :asset-id="data.image.asset._ref" @click="handleClick" quality="100" format="webp" class="w-full rounded-2xl md:rounded-3xl cursor-pointer contain-content hover:scale-101 duration-150" :class="data.border ? 'border border-base-300' : ''" />
+	<figure class="flex flex-col gap-2 overflow-clip h-fit" :class="data.fullWidth ? 'w-full rounded-2xl md:rounded-3xl' : 'w-178 rounded-xl md:rounded-2xl'">
+		<SanityImage :asset-id="data.image.asset._ref" @click="handleClick" quality="100" format="webp" class="w-full cursor-pointer contain-content hover:scale-101 duration-150" :class="data.border ? 'border border-base-300' : ''" />
 		<figcaption v-if="data.caption" class="text-caption text-base-content/50 italic text-center">
 			{{ data.caption }}
 		</figcaption>

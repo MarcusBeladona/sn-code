@@ -47,11 +47,11 @@
 	--font-mono: 'Fira Code', monospace;
 
 	--text-h1: 3rem;
-	--text-h2: 1.875rem;
-	--text-h3: 1.5rem;
-	--text-h4: 1.25rem;
-	--text-h5: 1rem;
-	--text-h6: 0.875rem;
+	--text-h2: 2.5rem;
+	--text-h3: 2rem;
+	--text-h4: 1.75rem;
+	--text-h5: 1.5rem;
+	--text-h6: 1.25rem;
 	--text-body: 1rem;
 	--text-caption: 0.875rem;
 	--text-overline: 0.75rem;
@@ -123,16 +123,16 @@
 	h4,
 	h5,
 	h6 {
-		@apply font-normal leading-tight font-display text-pretty h-fit;
+		@apply font-medium leading-tight font-display text-pretty h-fit;
 	}
 	h1 {
-		@apply text-h2 lg:text-h1;
+		@apply text-h1;
 	}
 	h2 {
-		@apply text-h3 lg:text-h2;
+		@apply text-h2;
 	}
 	h3 {
-		@apply text-h4 lg:text-h3;
+		@apply text-h3;
 	}
 	h4 {
 		@apply text-h4;
@@ -144,9 +144,8 @@
 		@apply text-h6;
 	}
 	p {
-		@apply text-base-content/80 leading-normal text-pretty;
+		@apply text-base-content/85 leading-normal text-pretty;
 	}
-
 	strong {
 		@apply font-semibold text-base-content antialiased;
 	}

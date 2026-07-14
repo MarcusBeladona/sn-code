@@ -44,15 +44,13 @@
 		}
 	}
 
-	console.log(item.value);
-
 </script>
 
 <template>
 	<main class="flex flex-col items-center gap-6 md:gap-36 w-full">
 		<!-- Header -->
 		<section class="flex flex-col gap-6 w-full max-w-178">
-			<h2 class="md:col-span-8 md:col-start-3">{{ item.title }}</h2>
+			<h4 class="md:col-span-8 md:col-start-3">{{ item.title }}</h4>
 			<VueTags class="md:col-span-8 md:col-start-3" :list="item.tags" />
 			<p class="md:col-span-8 md:col-start-3">{{ item.description }}</p>
 			<hr class="border-dashed text-zinc-300">

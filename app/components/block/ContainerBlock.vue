@@ -1,25 +1,16 @@
 <script setup>
-	const props = defineProps({
-		fullSpan: {
-			type: Boolean,
-			default: true
-		},
-		assetId: {
-			type: String,
-		},
-		caption: {
-			type: String,
-		}
-	})
+	const props = defineProps({ data: Object })
 </script>
 
 <template>
-	<span id="container" class="flex flex-col col-span-full bg-zinc-100 rounded-3xl border border-white ring ring-zinc-200">
-		<span class="flex gap-1 py-3 px-3">
+	<span id="container" class="flex flex-col bg-base-200 border border-base-300 rounded-2xl md:rounded-[28px]" :class="data.fullWidth ? 'w-full' : 'w-178'">
+		<span class="flex gap-1 px-4 py-3">
 			<Icon name="ph:circle-fill" size="16" class="text-[#FF605C]" />
 			<Icon name="ph:circle-fill" size="16" class="text-[#FFBD44]" />
 			<Icon name="ph:circle-fill" size="16" class="text-[#00CA4E]" />
 		</span>
-		<SanityImage :asset-id="props.assetId" class="rounded-t-none rounded-b-3xl hover:rounded-3xl hover:scale-102 transition-all cursor-zoom-in" />
+		<span class="p-2 pt-0">
+			<FigureBlock :data="{ ...data.image, _key: data._key }" class="rounded-xl" :class="data.border ? 'border border-base-300' : ''" />
+		</span>
 	</span>
 </template>

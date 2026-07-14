@@ -1,4 +1,6 @@
 <script setup>
+	import DiffBlock from './DiffBlock.vue'
+
 	const props = defineProps({
 		body: {
 			type: Object,
@@ -10,18 +12,35 @@
 		types: {
 			figureBlock: props => h(FigureBlock, {
 				data: props.value,
+				class: "block",
 			}),
 			videoBlock: props => h(VideoBlock, {
 				data: props.value,
+				class: "block",
 			}),
 			cardBlock: props => h(CardBlock, {
-				data: props.value
+				data: props.value,
+				class: "block",
 			}),
 			gridBlock: props => h(GridBlock, {
 				data: props.value,
+				class: "block",
 			}),
 			iframeBlock: props => h(IframeBlock, {
 				data: props.value,
+				class: "block",
+			}),
+			carouselBlock: props => h(CarouselBlock, {
+				data: props.value,
+				class: "block",
+			}),
+			containerBlock: props => h(ContainerBlock, {
+				data: props.value,
+				class: "block",
+			}),
+			diffBlock: props => h(DiffBlock, {
+				data: props.value,
+				class: "block",
 			}),
 		},
 		marks: {
@@ -47,64 +66,68 @@
 </script>
 
 <template>
-	<section class="w-full flex flex-col gap-6 items-center">
+	<section id="textBlock" class="w-full flex flex-col gap-6 items-center">
 		<SanityContent :value="body" :components="components" />
 	</section>
 </template>
 
-<style scoped>
+<style>
+
 	@reference "@/assets/css/main.css";
 
-	:deep(.highlight) {
-		@apply text-stone-900 inline pb-0.5;
-		background-image: linear-gradient(to right, #F3DBB4 0%, #F3DBB4 100%);
-		background-repeat: no-repeat;
-		background-size: 0% 100%;
-	}
+	#textBlock {
 
-	:deep(.highlight.isVisible) {
-		animation: slide 2s ease-in-out forwards;
-	}
+		/* LAYOUT */
 
-	:deep(:where(p, h1, h2, h3, h4, h5, h6, ul, ol, blockquote, pre, li)) {
-		@apply max-w-178 w-full;
-	}
+		.block:not(:first-child):not(.block + .block) {
+			@apply md:mt-18;
+		}
 
-	:deep(:where(h1, h2, h3)):not(:first-child) {
-		@apply md:mt-18;
-	}
+		.block:not(:last-child):not(:has(+ .block)) {
+			@apply md:mb-18;
+		}
 
-	:deep(h4:not(:first-child)) {
-		@apply md:mt-6;
-	}
+		/* ELEMENTS */
 
-	:deep(code) {
-		@apply px-3 pt-px font-normal bg-zinc-100 rounded-full text-red-600 border border-zinc-200;
-	}
+		> :where(h1, h2, h3, h4, h5, h6, p, li, ol, ul, blockquote, pre) {
+			@apply w-full max-w-178;
+		}
 
-	:deep(code)::before,
-	:deep(code)::after {
-		content: none;
-	}
+		> :where(h1, h2, h3, h4, h5, h6):not(.block + *) {
+			@apply mt-6;
+		}
 
-	:deep(ul) {
-		@apply prose list-disc list-inside;
-	}
+		>ul {
+			@apply prose list-disc list-inside text-base-content/85;
+		}
 
-	:deep(ol) {
-		@apply prose list-decimal list-inside;
-	}
+		>ol {
+			@apply prose list-decimal list-inside text-base-content/85;
+		}
 
-	:deep(p + .w-full) {
-		@apply md:mt-18;
-	}
+		code {
+			@apply px-1.5 pt-px font-normal rounded-sm bg-base-200 border border-base-300 text-red-600;
 
-	:deep(.w-full + p) {
-		@apply md:mt-18;
-	}
+			&::before,
+			&::after {
+				content: none;
+			}
+		}
 
-	:deep(a) {
-		@apply underline text-blue-700 hover:text-base-content visited:text-purple-700;
+		.highlight {
+			@apply inline pb-0.5 text-black;
+
+			background: linear-gradient(#F3DBB4, #F3DBB4) no-repeat;
+			background-size: 0% 100%;
+
+			&.isVisible {
+				animation: slide 2s ease-in-out forwards;
+			}
+		}
+
+		>a {
+			@apply underline text-blue-700 visited:text-purple-700 hover:text-base-content;
+		}
 	}
 
 </style>
