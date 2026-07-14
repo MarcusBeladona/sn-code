@@ -15,8 +15,8 @@
 			</div>
 			<div class="diff-resizer"></div>
 		</figure>
-		<figcaption class="text-caption text-center italic text-base-content/50">
+		<p class="text-caption text-center italic text-base-content/50">
 			{{ data.caption }}
-		</figcaption>
+		</p>
 	</section>
 </template>
