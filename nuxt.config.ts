@@ -22,7 +22,6 @@ export default defineNuxtConfig({
 		'@nuxt/image',
 		'@nuxt/icon',
 		'@nuxtjs/sanity',
-		'vue3-carousel-nuxt',
 		'@nuxt/fonts',
 		'nuxt-vitalizer'
 	],
