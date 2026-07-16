@@ -4,6 +4,14 @@
 	const query = groq`*[_type == "case" && language == $language && slug.current == $slug][0]`
 	const { data: item } = await useSanityQuery(query, { slug, language })
 
+	if (!item.value) {
+		throw createError({
+			statusCode: 404,
+			statusMessage: 'Page not found',
+			fatal: true
+		})
+	}
+
 	useSeoMeta({
 		title: item.value?.title || 'Marcus Beladona',
 		description: item.value?.description || 'Case Study',

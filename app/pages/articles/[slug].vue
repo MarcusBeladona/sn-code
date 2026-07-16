@@ -4,6 +4,14 @@
 	const query = groq`*[_type == "article" && language == $language && slug.current == $slug][0]`
 	const { data: item } = await useSanityQuery(query, { slug, language })
 
+	if (!item.value) {
+		throw createError({
+			statusCode: 404,
+			statusMessage: 'Page not found',
+			fatal: true
+		})
+	}
+
 	useSeoMeta({
 		title: item.value?.title || 'Marcus Beladona',
 		description: item.value?.description || 'Article',
@@ -44,16 +52,21 @@
 		}
 	}
 
+	const showSummary = ref(false);
+	const toggleSummary = computed(() => {
+		showSummary.value = !showSummary.value
+	})
+
 </script>
 
 <template>
 	<main class="flex flex-col items-center gap-6 md:gap-36 w-full">
 		<!-- Header -->
-		<section class="flex flex-col gap-6 w-full max-w-178">
-			<h4 class="md:col-span-8 md:col-start-3">{{ item.title }}</h4>
-			<VueTags class="md:col-span-8 md:col-start-3" :list="item.tags" />
-			<p class="md:col-span-8 md:col-start-3">{{ item.description }}</p>
-			<hr class="border-dashed text-base-content/12">
+		<section class="flex flex-col w-full max-w-178">
+			<h4 class="mb-6">{{ item.title }}</h4>
+			<VueTags class="mb-6" :list="item.tags" />
+			<p class="mb-6">{{ item.description }}</p>
+			<hr class="mb-6 border-dashed text-base-content/12">
 			<div class="flex justify-between">
 				<span class="flex items-center gap-3">
 					<NuxtImg src="/img/avatar.png" alt="Avatar" width="32" height="32" format="webp" class="rounded-full" />
@@ -63,14 +76,44 @@
 					</span>
 				</span>
 				<span class="flex gap-2">
-					<button class="btn-secondary" aria-label="share" @click="handleShare">
-						{{ $t('case.share') }}
+					<button class="btn-secondary" aria-label="summary" @click="toggleSummary">
+						{{ $t('case.summary') }}
+					</button>
+					<button class="btn-secondary p-0" aria-label="share" @click="handleShare">
+						<Icon name="ph:share-fat" />
 					</button>
 				</span>
 			</div>
+			<Transition name="expand">
+				<VueToc v-if="showSummary" class="mt-6 animate-none" />
+			</Transition>
 		</section>
 
 		<!-- Body -->
 		<RichTextBlock :body="item.body" />
 	</main>
 </template>
+
+<style>
+
+	.expand-enter-active,
+	.expand-leave-active {
+		transition: all 300ms ease;
+		overflow: hidden;
+	}
+
+	.expand-enter-from,
+	.expand-leave-to {
+		max-height: 0;
+		opacity: 0;
+		margin-top: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+
+	.expand-enter-to,
+	.expand-leave-from {
+		max-height: 1280px;
+		opacity: 1;
+	}
+</style>
