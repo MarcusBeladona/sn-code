@@ -156,13 +156,17 @@
 	.iconify {
 		font-size: 1.25em;
 	}
+
+	.outline {
+		@apply outline outline-base-300;
+	}
 }
 
 @utility autohide {
 	@apply hover:opacity-100 transition-opacity duration-300;
 }
 @utility edge {
-	@apply bg-base-200 border border-base-300 rounded-box;
+	@apply bg-base-200 outline outline-base-300 rounded-box;
 }
 
 @utility btn {
@@ -179,10 +183,11 @@
 }
 
 @utility badge {
-	@apply badge-xl text-caption text-base-content/70 bg-white border-base-300;
+	@apply badge-xl text-caption text-base-content/70 bg-white outline;
 }
 
 @utility text-hero {
 	font-size: 1.4375rem;
 	font-size: clamp(1.4375rem, -0.2875000000000001rem + 5.75vw, 4.3125rem);
 }
+

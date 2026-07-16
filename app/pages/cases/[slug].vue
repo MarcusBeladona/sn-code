@@ -67,13 +67,13 @@
 			<h3 class="md:col-span-8 md:col-start-3">{{ item.title }}</h3>
 			<VueTags class="md:col-span-8 md:col-start-3" :list="item.tags" />
 			<p class="md:col-span-8 md:col-start-3">{{ item.description }}</p>
-			<hr class="border-dashed text-zinc-300">
+			<hr class="border-dashed text-base-content/12">
 			<div class="flex justify-between">
 				<span class="flex items-center gap-3">
 					<NuxtImg src="/img/avatar.png" alt="Avatar" width="32" height="32" format="webp" class="rounded-full" />
 					<span class="flex flex-col">
 						<p class="text-sm">{{ $t('case.published') }}</p>
-						<p class="text-zinc-900">{{ formattedRelease }}</p>
+						<p class="text-base-content">{{ formattedRelease }}</p>
 					</span>
 				</span>
 				<span class="flex gap-2">
@@ -84,7 +84,7 @@
 			</div>
 		</section>
 		<!-- Body -->
-		<section @click="toggleModal" class="flex flex-col w-full bg-black rounded-3xl cursor-pointer hover:ring-zinc-300 hover:-translate-y-1 animate-enter duration-150 overflow-clip justify-center items-center">
+		<section @click="toggleModal" class="flex flex-col w-full bg-black rounded-3xl cursor-pointer hover:ring-base-300 hover:-translate-y-1 animate-enter duration-150 overflow-clip justify-center items-center">
 			<SanityImage v-if="item.thumb" :asset-id="item.thumb.asset._ref" :alt="item.title" format="webp" class="w-full opacity-30" />
 			<button class="btn-secondary absolute" aria-label="view details">
 				<p>{{ $t('case.showcase') }}</p>

@@ -106,7 +106,7 @@
 		}
 
 		code {
-			@apply px-1.5 pt-px font-normal rounded-sm bg-base-200 border border-base-300 text-red-600;
+			@apply px-1.5 pt-px font-normal rounded-sm bg-base-200 outline text-red-600;
 
 			&::before,
 			&::after {
@@ -125,7 +125,7 @@
 			}
 		}
 
-		>a {
+		a {
 			@apply underline text-blue-700 visited:text-purple-700 hover:text-base-content;
 		}
 	}

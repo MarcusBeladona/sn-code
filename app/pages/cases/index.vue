@@ -10,7 +10,7 @@
 		<section class="flex flex-col gap-6">
 			<div class="flex items-end gap-6">
 				<h4 class="text-nowrap">Cases</h4>
-				<hr class="pb-3.5 border-dashed w-full text-zinc-300">
+				<hr class="pb-3.5 border-dashed w-full text-base-content/12">
 			</div>
 			<section v-if="cases?.length" id="cardsbox" class="flex flex-col gap-6 lg:grid grid-cols-3">
 				<VueCase v-for="item in cases" :key="item._id" :item="item" />

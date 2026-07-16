@@ -6,7 +6,7 @@
 
 <template>
 	<section class="flex flex-col gap-2 w-full">
-		<figure class="diff aspect-video grid rounded-2xl md:rounded-3xl" tabindex="0" :class="data.border ? 'border border-base-300' : ''">
+		<figure class="diff aspect-video grid rounded-2xl md:rounded-3xl" tabindex="0" :class="data.border ? 'outline' : ''">
 			<div class="diff-item-1" role="img" tabindex="0">
 				<SanityImage :asset-id="data.images[0].asset._ref" quality="100" format="webp" />
 			</div>

@@ -53,7 +53,7 @@
 			<h4 class="md:col-span-8 md:col-start-3">{{ item.title }}</h4>
 			<VueTags class="md:col-span-8 md:col-start-3" :list="item.tags" />
 			<p class="md:col-span-8 md:col-start-3">{{ item.description }}</p>
-			<hr class="border-dashed text-zinc-300">
+			<hr class="border-dashed text-base-content/12">
 			<div class="flex justify-between">
 				<span class="flex items-center gap-3">
 					<NuxtImg src="/img/avatar.png" alt="Avatar" width="32" height="32" format="webp" class="rounded-full" />

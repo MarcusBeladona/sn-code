@@ -24,9 +24,10 @@
 				<div tabindex="0" role="button" aria-label="toggle-lang" class="btn-secondary p-0">
 					<Icon name="ph:globe" />
 				</div>
-				<ul tabindex="-1" class="dropdown-content menu z-1 mt-2 p-4 gap-2 bg-white rounded-2xl border border-zinc-200">
+				<ul tabindex="-1" class="dropdown-content menu z-1 mt-2 p-4 gap-2 bg-white rounded-2xl outline">
 					<li v-for="code in locales" :key="code">
-						<button class="btn-secondary w-full text-nowrap" :class="{ 'bg-zinc-100': locale === code }" @click="setLocale(code)">
+
+						<button class="btn-secondary w-full text-nowrap" :class="{ 'bg-base-200': locale === code }" @click="setLocale(code)">
 							{{ code }}
 						</button>
 					</li>
@@ -39,7 +40,7 @@
 				<div tabindex="0" role="button" aria-label="menu-button" class="btn-primary p-0">
 					<Icon name="ph:list" />
 				</div>
-				<ul tabindex="1" class="dropdown-content menu z-1 mt-2 gap-2 justify-center items-center p-4 bg-white rounded-2xl border border-zinc-200">
+				<ul tabindex="1" class="dropdown-content menu z-1 mt-2 gap-2 justify-center items-center p-4 bg-white rounded-2xl outline">
 					<li class="w-full">
 						<NuxtLink to="/cases" class="btn-secondary w-full">Cases</NuxtLink>
 					</li>

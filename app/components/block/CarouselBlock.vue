@@ -8,7 +8,7 @@
 		<Splide :has-track="false" :options="{ rewind: true }" aria-label="Carousel">
 			<SplideTrack>
 				<SplideSlide v-for="item in data.images">
-					<FigureBlock :data="item" :class="data.border ? 'border border-base-300' : ''" />
+					<FigureBlock :data="item" :class="data.border ? 'outline' : ''" />
 				</SplideSlide>
 			</SplideTrack>
 			<ul class="splide__pagination"></ul>

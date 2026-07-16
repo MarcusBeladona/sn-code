@@ -20,7 +20,7 @@
 		<section class="flex flex-col gap-6 ">
 			<div class="flex gap-6 items-end">
 				<h4 class="text-nowrap">{{ $t('about.title') }}</h4>
-				<hr class="border-dashed text-zinc-300 w-full pb-3.5">
+				<hr class="border-dashed text-base-content/12 w-full pb-3.5">
 			</div>
 			<section class="flex flex-col lg:grid grid-cols-12 gap-6">
 				<span class="flex flex-col gap-6 col-span-5">
@@ -38,7 +38,7 @@
 		<section class="flex flex-col gap-6">
 			<div class="flex gap-6 items-end">
 				<h4 class="text-nowrap">{{ $t('about.academic') }}</h4>
-				<hr class="border-dashed text-zinc-300 w-full pb-3.5">
+				<hr class="border-dashed text-base-content/12 w-full pb-3.5">
 			</div>
 			<section class="flex flex-col lg:grid grid-cols-12 gap-6">
 				<p class="col-span-5 text-balance">{{ $t('about.academicText') }}</p>
@@ -48,7 +48,7 @@
 						<span class="flex flex-col md:flex-row gap-6 md:items-end">
 							<NuxtImg src="img/ufc-logo.jpg" class="w-12 h-12 rounded-xl" />
 							<span class="flex flex-col">
-								<h5 class="text-white">UFC</h5>
+								<h6 class="text-white">UFC</h6>
 								<p class="text-white">{{ $t('about.degree') }}</p>
 							</span>
 						</span>
@@ -60,16 +60,16 @@
 		<section class="flex flex-col gap-6">
 			<div class="flex gap-6 items-end">
 				<h4 class="text-nowrap">{{ $t('about.professional') }}</h4>
-				<hr class="border-dashed text-zinc-300 w-full pb-3.5">
+				<hr class="border-dashed text-base-content/12 w-full pb-3.5">
 			</div>
 			<section class="flex flex-col lg:grid grid-cols-12 gap-6">
 				<p class="col-span-5 text-balance">{{ $t('about.professionalText') }}</p>
-				<section class="col-start-7 col-span-6 flex flex-col gap-6 divide-y divide-dashed divide-zinc-300">
+				<section class="col-start-7 col-span-6 flex flex-col gap-6 divide-y divide-dashed divide-base-300">
 					<span v-for="job in experience" :key="`${job.company}-${job.period}`" class="flex  justify-between items-end pb-6 last:pb-0">
 						<span class="flex flex-col md:flex-row gap-6">
 							<NuxtImg :src="job.logo" class="w-12 h-12 rounded-xl" />
 							<span class="flex flex-col">
-								<h5>{{ job.company }}</h5>
+								<h6>{{ job.company }}</h6>
 								<p>{{ job.role }}</p>
 							</span>
 						</span>

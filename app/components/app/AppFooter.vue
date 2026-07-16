@@ -18,20 +18,22 @@
 					<Icon name="ph:arrow-up" />
 				</button>
 			</div>
-			<hr class="border-dashed text-zinc-300">
+			<hr class="border-dashed text-base-content/12">
 			<section class="justify-between flex flex-col gap-6 md:grid grid-cols-12">
 				<section class="flex flex-col col-span-6">
 					<h6 class="content-center h-10 underline">marcusbeladona@gmail.com</h6>
-					<p class="content-center h-10 text-zinc-700">+55 (88) 9 8859-4402</p>
+					<p class="content-center h-10 text-base-content/70">+55 (88) 9 8859-4402</p>
 				</section>
-				<section class="flex flex-col col-span-3">
-					<NuxtLink to="/" class="-ml-4 btn-link">Home</NuxtLink>
-					<NuxtLink to="/cases" class="-ml-4 btn-link">{{ $t('footer.cases') }}</NuxtLink>
-					<!-- <NuxtLink to="" class="-ml-4 btn-link">{{ $t('footer.blog') }}</NuxtLink> -->
-				</section>
-				<section class="flex flex-col col-span-3">
-					<NuxtLink to="/about" class="-ml-4 btn-link">{{ $t('footer.about') }}</NuxtLink>
-					<a href="#contact" class="-ml-4 btn-link">{{ $t('footer.contact') }}</a>
+				<section class="flex gap-6 col-span-6">
+					<section class="flex flex-col w-full">
+						<NuxtLink to="/" class="-ml-4 btn-link">Home</NuxtLink>
+						<NuxtLink to="/cases" class="-ml-4 btn-link">{{ $t('footer.cases') }}</NuxtLink>
+						<!-- <NuxtLink to="" class="-ml-4 btn-link">{{ $t('footer.blog') }}</NuxtLink> -->
+					</section>
+					<section class="flex flex-col w-full">
+						<NuxtLink to="/about" class="-ml-4 btn-link">{{ $t('footer.about') }}</NuxtLink>
+						<a href="#contact" class="-ml-4 btn-link">{{ $t('footer.contact') }}</a>
+					</section>
 				</section>
 			</section>
 		</section>
