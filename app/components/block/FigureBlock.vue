@@ -20,7 +20,7 @@
 
 <template>
 	<figure class="flex flex-col gap-2 h-fit hover:scale-101 duration-150" :class="data.fullWidth ? 'w-full ' : 'w-178'">
-		<SanityImage :asset-id="data.image.asset._ref" @click="handleClick" quality="100" format="webp" class="w-full cursor-pointer contain-content rounded-2xl md:rounded-3xl" :class="data.border ? 'outline' : ''" />
+		<SanityImage :asset-id="data.image.asset._ref" @click="handleClick" quality="100" format="webp" :alt="data.caption || 'image'" class="w-full cursor-pointer contain-content rounded-2xl md:rounded-3xl" :class="data.border ? 'outline' : ''" />
 		<figcaption v-if="data.caption" class="text-caption text-base-content/50 italic text-center">
 			{{ data.caption }}
 		</figcaption>

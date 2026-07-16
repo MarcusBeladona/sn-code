@@ -22,7 +22,7 @@
 	<figure class="flex flex-col gap-2" :class="data.fullWidth ? 'w-full' : 'w-178'">
 		<SanityFile :asset-id="data.video.asset._ref">
 			<template #default="{ src }">
-				<video autoplay loop muted width="100%" @click="handleClick" preload="metadata" alt="video" class="rounded-2xl md:rounded-3xl cursor-pointer hover:scale-101 duration-150" :class="data.border ? 'outline' : ''">
+				<video autoplay loop muted width="100%" @click="handleClick" preload="metadata" :alt="data.caption || 'video'" class="rounded-2xl md:rounded-3xl cursor-pointer hover:scale-101 duration-150" :class="data.border ? 'outline' : ''">
 					<source :src="src" type="video/webm" />
 				</video>
 			</template>
@@ -35,7 +35,7 @@
 			<div @click="closeModal" class="modal-box p-6 bg-transparent flex items-center justify-center rounded-none w-full h-full max-w-screen max-h-screen">
 				<SanityFile :asset-id="data.video.asset._ref">
 					<template #default="{ src }">
-						<video autoplay loop muted controls width="100%" preload="metadata" alt="video" class="max-w-full max-h-full w-fit h-auto lg:h-full object-contain rounded-2xl md:rounded-3xl">
+						<video autoplay loop muted controls width="100%" preload="metadata" :alt="data.caption || 'video'" class="max-w-full max-h-full w-fit h-auto lg:h-full object-contain rounded-2xl md:rounded-3xl">
 							<source :src="src" type="video/webm" />
 						</video>
 					</template>
