@@ -15,7 +15,7 @@
 		<p class="text-sm text-base-content/50 italic text-center">{{ data.caption }}</p>
 
 		<div @click="toggleFS" :class="FS ? 'bg-black/90 fixed inset-0' : 'hidden'" class=" flex flex-col items-center justify-start overflow-y-auto w-full z-50 cursor-zoom-out">
-			<SanityImage v-for="image in data.images" :asset-id="image.asset._ref" class="w-full max-w-[1440px] animate-enter" />
+			<SanityImage v-for="image in data.images" :asset-id="image.asset._ref" class="w-full max-w-360 animate-enter" />
 		</div>
 	</section>
 </template>
