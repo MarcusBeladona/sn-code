@@ -10,7 +10,7 @@
 			<Icon :name="data.iconName" size="24" />
 		</span>
 		<span class="flex flex-col gap-2">
-			<h6>{{ data.title }}</h6>
+			<h5>{{ data.title }}</h5>
 			<p>{{ data.description }}</p>
 		</span>
 	</article>

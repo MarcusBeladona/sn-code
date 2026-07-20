@@ -15,7 +15,7 @@
 <template>
 	<main class="w-full flex flex-col gap-6">
 		<section class="flex items-end gap-6">
-			<h4 class="text-nowrap">Cases</h4>
+			<h2 class="text-nowrap">Cases</h2>
 			<hr class="pb-3 border-dashed w-full text-base-content/12">
 		</section>
 

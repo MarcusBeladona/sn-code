@@ -29,7 +29,7 @@ export default defineNuxtConfig({
 	],
 	fonts: {
 		defaults: {
-			weights: ['100 900']
+			weights: [300, 400, 500, 600, 700]
 		},
 	},
 	runtimeConfig: {

@@ -24,7 +24,7 @@
 					<p class="text-green-700 text-sm">{{ $t('home.disponibility') }}</p>
 				</span>
 			</span>
-			<h4 class="text-hero">{{ $t('home.intro') }}</h4>
+			<h1 class="text-hero">{{ $t('home.intro') }}</h1>
 			<span class="flex items-center gap-2 mt-2 flex-wrap">
 				<p class="badge">PRODUCT</p>
 				<p class="badge">UX/UI</p>
@@ -37,7 +37,7 @@
 		<!-- Cases -->
 		<section v-if="cases?.length" class="flex flex-col gap-6">
 			<div class="flex justify-between gap-6">
-				<h4>{{ $t('home.cases') }}</h4>
+				<h2>{{ $t('home.cases') }}</h2>
 				<NuxtLink to="/cases" class="btn-secondary">{{ $t('home.seeMore') }}</NuxtLink>
 			</div>
 			<section v-if="cases?.length" class="flex flex-col gap-6 md:grid md:grid-cols-3">

@@ -96,7 +96,7 @@
 	<main v-if="item" class="flex flex-col items-center gap-24 w-full">
 		<!-- Header -->
 		<section class="flex flex-col w-full max-w-178">
-			<h4 class="mb-6">{{ item.title }}</h4>
+			<h1 class="mb-6">{{ item.title }}</h1>
 			<VueTags v-if="item.tags?.length" class="mb-6" :list="item.tags" />
 			<p class="mb-6">{{ item.description }}</p>
 			<hr class="mb-6 border-dashed text-base-content/12">
@@ -128,6 +128,7 @@
 </template>
 
 <style>
+
 	.expand-enter-active,
 	.expand-leave-active {
 		transition: all 300ms ease;

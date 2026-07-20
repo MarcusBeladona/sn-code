@@ -14,7 +14,7 @@
 	onMounted(() => {
 		const body = document.getElementById('textBlock')
 		if (!body) return
-		const elements = body.querySelectorAll('h4, h5, h6')
+		const elements = body.querySelectorAll('h1, h2, h3, h4')
 		headings.value = [...elements].map((el) => {
 			if (!el.id) {
 				el.id = slugify(el.textContent || '')
@@ -31,12 +31,7 @@
 <template>
 	<section v-if="headings.length" class="bg-base-200 rounded-2xl md:rounded-3xl p-6 outline">
 		<ul class="list-none m-0 p-0">
-			<li
-				v-for="el in headings"
-				:key="el.id"
-				:class="el.level == 6 ? 'ml-4 hover:ml-5 text-base-content/60' : 'text-base-content/85'"
-				class="hover:text-base-content hover:ml-1 transition-all mb-0 mt-0 py-1.5 px-0 leading-none"
-			>
+			<li v-for="el in headings" :key="el.id" :class="el.level == 2 ? 'ml-4 hover:ml-5 text-base-content/60' : 'text-base-content/85'" class="hover:text-base-content hover:ml-1 transition-all mb-0 mt-0 py-1.5 px-0 leading-none">
 				<a :href="`#${el.id}`" class="no-underline">{{ el.title }}</a>
 			</li>
 		</ul>
