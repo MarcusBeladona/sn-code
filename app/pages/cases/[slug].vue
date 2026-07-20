@@ -19,12 +19,12 @@
 		if (isNaN(d.getTime())) return raw
 		const loc = typeof language === 'string' ? language : (language?.value ?? 'pt-BR')
 		const month = new Intl.DateTimeFormat(loc, { month: 'long' }).format(d)
-		const monthCap = month.charAt(0).toUpperCase() + month.slice(1)
+		const monthAbbr = month.charAt(0).toUpperCase() + month.slice(1, 3) + '.'
 		const year = d.getUTCFullYear()
 		if (String(loc).startsWith('pt')) {
-			return `${monthCap} de ${year}`
+			return `${monthAbbr} de ${year}`
 		}
-		return `${monthCap} ${year}`
+		return `${monthAbbr} ${year}`
 	})
 
 	const shareData = {
@@ -45,9 +45,9 @@
 	}
 
 	const showSummary = ref(false);
-	const toggleSummary = computed(() => {
+	function toggleSummary() {
 		showSummary.value = !showSummary.value
-	})
+	}
 
 </script>
 

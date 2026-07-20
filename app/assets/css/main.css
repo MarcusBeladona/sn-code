@@ -1,6 +1,9 @@
 @import "tailwindcss";
-@plugin "@tailwindcss/typography";
 
+@source "../../app.vue";
+@source "../../error.vue";
+
+@plugin "@tailwindcss/typography";
 @plugin "daisyui" {
   themes: soft --default;
 }

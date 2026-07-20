@@ -12,7 +12,6 @@
 	const handleShare = async () => {
 		try {
 			if (navigator.share) {
-				console.log(shareData);
 				await navigator.share(shareData)
 			} else {
 				await navigator.clipboard.writeText(shareData.url)
