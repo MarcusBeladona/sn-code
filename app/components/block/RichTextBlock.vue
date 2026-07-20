@@ -80,11 +80,11 @@
 		/* LAYOUT */
 
 		.block:not(:first-child):not(.block + .block) {
-			@apply md:mt-18;
+			@apply mt-6 md:mt-18;
 		}
 
 		.block:not(:last-child):not(:has(+ .block)) {
-			@apply md:mb-18;
+			@apply mb-6 md:mb-18;
 		}
 
 		/* ELEMENTS */

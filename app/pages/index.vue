@@ -34,13 +34,22 @@
 			</span>
 		</section>
 		<!-- Cases -->
-		<section v-if="cases" class="flex flex-col gap-6">
-			<div class="flex justify-between items-center gap-6">
+		<section v-if="cases?.length" class="flex flex-col gap-6">
+			<div class="flex justify-between gap-6">
 				<h4>{{ $t('home.cases') }}</h4>
 				<NuxtLink to="/cases" class="btn-secondary">{{ $t('home.seeMore') }}</NuxtLink>
 			</div>
-			<section v-if="cases?.length" id="cardsbox" class="flex md:flex-row flex-col gap-6">
-				<VueCase v-for="item in cases" :key="item._id" :item="item" />
+			<section v-if="cases?.length" class="flex flex-col gap-6 md:grid md:grid-cols-3">
+				<NuxtLink v-for="item in cases" :to="'/cases/' + item.slug.current" class="w-full h-fit md:relative rounded-2xl md:rounded-3xl overflow-clip group outline md:outline-none">
+					<figure class="">
+						<SanityImage :asset-id="item.thumb.asset._ref" quality="100" format="webp" class="w-full h-full object-cover group-hover:scale-102 transition duration-300" />
+					</figure>
+
+					<span class="flex flex-col p-4 md:p-6 bg-base-200 md:bg-black/0 md:bg-linear-180 justify-end md:from-black/0 md:to-black/80 md:absolute md:inset-0 md:opacity-0 group-hover:opacity-100 transition duration-300">
+						<p class="md:text-white">{{ item.title }}</p>
+						<VueTags :list="item.tags" class="[&_p]:md:text-white" />
+					</span>
+				</NuxtLink>
 			</section>
 		</section>
 	</main>

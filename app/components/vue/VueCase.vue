@@ -23,7 +23,7 @@
 				<SanityImage :asset-id="item.thumb.asset._ref" format="webp" alt="thumbnail" class="w-full aspect-4/3 brightness-100" />
 			</figure>
 			<div class="card-body opacity-0 hover:opacity-100 transition-all duration-300 flex flex-col justify-end gap-2 bg-linear-to-b from-transparent to-black/80 cursor-pointer">
-				<h4 class="">{{ item.title }}</h4>
+				<h6 class="">{{ item.title }}</h6>
 				<VueTags :list="item.tags" class="flex flex-wrap gap-2 opacity-80" />
 			</div>
 		</div>

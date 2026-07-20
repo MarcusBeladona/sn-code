@@ -123,7 +123,7 @@
 	h4,
 	h5,
 	h6 {
-		@apply font-medium leading-tight font-display text-pretty h-fit;
+		@apply font-medium leading-tight font-display text-pretty h-fit subpixel-antialiased;
 	}
 	h1 {
 		@apply text-h1;
@@ -144,10 +144,10 @@
 		@apply text-h6;
 	}
 	p {
-		@apply text-base-content/85 leading-normal text-pretty;
+		@apply text-base-content/85 leading-normal text-pretty subpixel-antialiased;
 	}
 	strong {
-		@apply font-semibold text-base-content antialiased;
+		@apply font-semibold text-base-content subpixel-antialiased;
 	}
 }
 
@@ -183,7 +183,7 @@
 }
 
 @utility badge {
-	@apply badge-xl text-caption text-base-content/70 bg-white outline;
+	@apply badge-xl text-caption text-base-content/70 bg-white border-base-300;
 }
 
 @utility text-hero {
