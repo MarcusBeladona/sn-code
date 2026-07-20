@@ -1,4 +1,6 @@
 <script setup>
+	import '~/assets/css/main.css'
+
 	const { locale } = useI18n()
 	const route = useRoute()
 	const siteUrl = useRuntimeConfig().public.siteUrl

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 	import type { NuxtError } from '#app'
 	import clumsyIllustration from '~/assets/icons/clumsy-opendoodles.svg'
+	import '~/assets/css/main.css'
 
 	defineProps<{ error: NuxtError }>()
 </script>
