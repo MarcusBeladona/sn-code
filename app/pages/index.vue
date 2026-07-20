@@ -36,9 +36,9 @@
 		</section>
 		<!-- Cases -->
 		<section v-if="cases?.length" class="flex flex-col gap-6">
-			<div class="flex justify-between gap-6">
-				<h2>{{ $t('home.cases') }}</h2>
-				<NuxtLink to="/cases" class="btn-secondary">{{ $t('home.seeMore') }}</NuxtLink>
+			<div class="flex justify-between items-center gap-6">
+				<h2 class="mb-1">{{ $t('home.cases') }}</h2>
+				<NuxtLink to=" /cases" class="btn-secondary">{{ $t('home.seeMore') }}</NuxtLink>
 			</div>
 			<section v-if="cases?.length" class="flex flex-col gap-6 md:grid md:grid-cols-3">
 				<NuxtLink v-for="item in cases" :to="'/cases/' + item.slug.current" class="w-full h-fit md:relative rounded-2xl md:rounded-3xl overflow-clip group outline md:outline-none">

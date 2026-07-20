@@ -129,13 +129,13 @@
 		@apply text-base-content leading-tight text-pretty h-fit subpixel-antialiased;
 	}
 	h1 {
-		@apply text-h1 font-display;
+		@apply text-h2 md:text-h1 font-display;
 	}
 	h2 {
-		@apply text-h2 font-display;
+		@apply text-h3 md:text-h2 font-display;
 	}
 	h3 {
-		@apply text-h3 font-display;
+		@apply text-h4 md:text-h3 font-display;
 	}
 	h4 {
 		@apply text-h4 font-display;

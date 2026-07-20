@@ -6,7 +6,7 @@
 <template>
 	<section id="carousel">
 		<Splide :has-track="false" :options="{ rewind: true }" aria-label="Carousel">
-			<SplideTrack class="rounded-3xl">
+			<SplideTrack class="rounded-2xl md:rounded-3xl">
 				<SplideSlide v-for="item in data.images" :key="item._key">
 					<FigureBlock :data="item" class="[&_>img]:rounded-none" :class="data.border ? 'outline' : ''" />
 				</SplideSlide>
