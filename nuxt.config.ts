@@ -7,6 +7,8 @@ declare const process: {
 
 const sanityProjectId = 'zt4joqnt'
 const sanityDataset = 'production'
+const sanityApiVersion = '2025-02-19'
+const siteUrl = 'https://marcusbeladona.com'
 
 export default defineNuxtConfig({
 	compatibilityDate: '2026-06-26',
@@ -25,6 +27,11 @@ export default defineNuxtConfig({
 		'@nuxt/fonts',
 		'nuxt-vitalizer'
 	],
+	runtimeConfig: {
+		public: {
+			siteUrl,
+		},
+	},
 	i18n: {
 		defaultLocale: 'en-US',
 		strategy: 'no_prefix',
@@ -49,6 +56,8 @@ export default defineNuxtConfig({
 	sanity: {
 		projectId: sanityProjectId,
 		dataset: sanityDataset,
+		apiVersion: sanityApiVersion,
+		// Visual Editing disabled — enable only if live preview is needed
 	},
 	image: {
 		sanity: {

@@ -21,7 +21,7 @@
 			<hr class="border-dashed text-base-content/12">
 			<section class="justify-between flex flex-col gap-6 md:grid grid-cols-12">
 				<section class="flex flex-col col-span-6">
-					<h6 class="content-center h-10 underline">marcusbeladona@gmail.com</h6>
+					<a href="mailto:marcusbeladona@gmail.com" class="content-center h-10 underline w-fit">marcusbeladona@gmail.com</a>
 					<p class="content-center h-10 text-base-content/70">+55 (88) 9 8859-4402</p>
 				</section>
 				<section class="flex gap-6 col-span-6">

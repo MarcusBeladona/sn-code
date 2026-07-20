@@ -1,5 +1,12 @@
 <script setup>
-	const { tm, rt } = useI18n()
+	const { t, tm, rt } = useI18n()
+
+	useSeoMeta({
+		title: () => `${t('about.title')} | Marcus Beladona`,
+		description: () => t('seo.aboutDescription'),
+		ogTitle: () => `${t('about.title')} | Marcus Beladona`,
+		ogDescription: () => t('seo.aboutDescription'),
+	})
 
 	const specialties = computed(() => tm('about.specialties').map((item) => ({
 		iconName: rt(item.icon),

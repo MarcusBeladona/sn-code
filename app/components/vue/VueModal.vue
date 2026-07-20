@@ -84,7 +84,7 @@
 					<SanityFile v-else-if="value._type === 'video'" :asset-id="value.asset._ref">
 						<template #default="{ src }">
 							<video autoplay loop muted width="100%" preload="metadata" :alt="value.title">
-								<source :src="src" type="video/webm" />
+								<source :src="src" />
 							</video>
 						</template>
 					</SanityFile>

@@ -1,14 +1,15 @@
 <script setup>
+	const { t } = useI18n()
 	const language = useSanityLanguage()
 	const query = groq`*[_type == "case" && bookmark == true && language == $language]
   | order(orderRank)`
 	const { data: cases } = await useSanityQuery(query, { language })
 
 	useSeoMeta({
-		title: 'Marcus Beladona',
-		description: 'Marcus Beladona Portfolio Site | Product Designer | UX/UI Designer',
-		ogTitle: 'Marcus Beladona',
-		ogDescription: 'Marcus Beladona Portfolio Site | Product Designer | UX/UI Designer',
+		title: () => t('seo.homeTitle'),
+		description: () => t('seo.homeDescription'),
+		ogTitle: () => t('seo.homeTitle'),
+		ogDescription: () => t('seo.homeDescription'),
 	})
 </script>
 

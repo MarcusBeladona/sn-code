@@ -1,62 +1,103 @@
 <script setup>
-	const slug = useRoute().params.slug
+	const route = useRoute()
+	const slug = computed(() => {
+		const param = route.params.slug
+		return Array.isArray(param) ? param[0] : param
+	})
 	const language = useSanityLanguage()
-	const query = groq`*[_type == "case" && language == $language && slug.current == $slug][0]`
+	const siteUrl = useRuntimeConfig().public.siteUrl
+
+	const query = groq`*[_type == "case" && language == $language && slug.current == $slug][0]{
+		...,
+		"ogImage": thumb.asset->url
+	}`
 	const { data: item } = await useSanityQuery(query, { slug, language })
 
-	useSeoMeta({
-		title: item.value?.title || 'Marcus Beladona',
-		description: item.value?.description || 'Case',
-		ogTitle: item.value?.title || 'Marcus Beladona',
-		ogDescription: item.value?.description || 'Case',
-		ogImage: item.value?.thumb?.asset?.url,
+	if (!item.value) {
+		throw createError({ statusCode: 404, statusMessage: 'Case not found' })
+	}
+
+	watch(item, (value) => {
+		if (!value) {
+			showError({ statusCode: 404, statusMessage: 'Case not found' })
+		}
 	})
 
+	useSeoMeta({
+		title: () => item.value?.title || 'Marcus Beladona',
+		description: () => item.value?.description || 'Case',
+		ogTitle: () => item.value?.title || 'Marcus Beladona',
+		ogDescription: () => item.value?.description || 'Case',
+		ogImage: () => item.value?.ogImage,
+	})
+
+	useHead(() => ({
+		script: [
+			{
+				type: 'application/ld+json',
+				children: JSON.stringify({
+					'@context': 'https://schema.org',
+					'@type': 'CreativeWork',
+					name: item.value?.title,
+					description: item.value?.description,
+					image: item.value?.ogImage,
+					url: `${siteUrl}/cases/${slug.value}`,
+					author: {
+						'@type': 'Person',
+						name: 'Marcus Beladona',
+						url: siteUrl,
+					},
+					datePublished: item.value?.release,
+				}),
+			},
+		],
+	}))
+
 	const formattedRelease = computed(() => {
-		const raw = item?.value?.release
+		const raw = item.value?.release
 		if (!raw) return ''
 		const d = new Date(raw)
 		if (isNaN(d.getTime())) return raw
-		const loc = typeof language === 'string' ? language : (language?.value ?? 'pt-BR')
+		const loc = language.value === 'pt' ? 'pt-BR' : 'en-US'
 		const month = new Intl.DateTimeFormat(loc, { month: 'long' }).format(d)
 		const monthAbbr = month.charAt(0).toUpperCase() + month.slice(1, 3) + '.'
 		const year = d.getUTCFullYear()
-		if (String(loc).startsWith('pt')) {
+		if (loc.startsWith('pt')) {
 			return `${monthAbbr} de ${year}`
 		}
 		return `${monthAbbr} ${year}`
 	})
 
-	const shareData = {
+	const shareData = computed(() => ({
 		title: item.value?.title || 'Marcus Beladona',
-		text: item.value?.description || 'Article',
-		url: 'https://marcusbeladona.com/articles/' + slug || 'https://marcusbeladona.com',
-	}
+		text: item.value?.description || 'Case',
+		url: `${siteUrl}/cases/${slug.value}`,
+	}))
+
 	const handleShare = async () => {
 		try {
 			if (navigator.share) {
-				await navigator.share(shareData)
+				await navigator.share(shareData.value)
 			} else {
-				await navigator.clipboard.writeText(shareData.url)
+				await navigator.clipboard.writeText(shareData.value.url)
 			}
 		} catch (error) {
 			console.error('Error sharing:', error)
 		}
 	}
 
-	const showSummary = ref(false);
+	const showSummary = ref(false)
 	function toggleSummary() {
 		showSummary.value = !showSummary.value
 	}
-
 </script>
 
 <template>
-	<main class="flex flex-col items-center gap-24 w-full">
+	<main v-if="item" class="flex flex-col items-center gap-24 w-full">
 		<!-- Header -->
 		<section class="flex flex-col w-full max-w-178">
 			<h4 class="mb-6">{{ item.title }}</h4>
-			<VueTags class="mb-6" :list="item.tags" />
+			<VueTags v-if="item.tags?.length" class="mb-6" :list="item.tags" />
 			<p class="mb-6">{{ item.description }}</p>
 			<hr class="mb-6 border-dashed text-base-content/12">
 			<div class="flex justify-between">
@@ -82,12 +123,11 @@
 		</section>
 
 		<!-- Body -->
-		<RichTextBlock :body="item.body" />
+		<RichTextBlock v-if="item.body" :body="item.body" />
 	</main>
 </template>
 
 <style>
-
 	.expand-enter-active,
 	.expand-leave-active {
 		transition: all 300ms ease;

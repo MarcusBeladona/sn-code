@@ -12,7 +12,7 @@ Portfolio pessoal desenvolvido com Nuxt, Sanity e TailwindCSS por Marcus Beladon
 - Nuxt Image
 - Nuxt Icon
 - Nuxt i18n
-- Vue3 Carousel
+- Splide
 - Vercel
 
 ---

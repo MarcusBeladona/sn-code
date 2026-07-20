@@ -1,10 +1,17 @@
 {
+	"seo": {
+		"homeTitle": "Marcus Beladona",
+		"homeDescription": "Marcus Beladona Portfolio Site | Product Designer | UX/UI Designer",
+		"casesTitle": "Cases | Marcus Beladona",
+		"casesDescription": "Marcus Beladona Portfolio Cases | Product Designer | UX/UI Designer",
+		"aboutDescription": "Brazilian designer with over 5 years of experience in UX/UI, Product Design, Design Systems, and AI-assisted product design."
+	},
 	"nav": {
 		"about": "About",
 		"contact": "Contact"
 	},
 	"home": {
-		"disponibility": "Avaliable",
+		"disponibility": "Available",
 		"intro": "Hi! I'm Marcus Beladona, a Digital Designer currently based in Fortaleza, Brazil.",
 		"cases": "Featured",
 		"seeMore": "See Cases",
@@ -14,11 +21,27 @@
 		"title": "About Me",
 		"bio1": "Hi! I'm Marcus Beladona, a Brazilian designer with over 5 years of experience creating digital products. Throughout my career, I've worked across UX/UI Design, Product Design, Design Systems, and Front-end, taking products from early ideas to implementation. In recent years, I've also been exploring AI, Conversational Design, and how agents can help solve real-world problems.",
 		"bio2": "I believe great products bring together functionality, aesthetics, and ease of use without losing sight of the people who use them, the contexts they're in, and the challenges they face. If you'd like to learn more about my work and chat about opportunities or projects, I'd be happy to connect!",
-		"academic": "Academic", "academicText": "I hold a Bachelor's degree in Digital Design from the Federal University of Ceará (UFC). Throughout my studies, I explored Human–Computer Interaction (HCI), UX Design, prototyping, information architecture, front-end development, and other disciplines related to digital product design.", "degree": "Digital Design", "professional": "Professional", "professionalText": "More than 5 years of experience designing digital products with a focus on user experience, interfaces, and design systems. I've contributed to projects involving digital accessibility, telecommunications, conversational experiences, and more.",
+		"academic": "Academic",
+		"academicText": "I hold a Bachelor's degree in Digital Design from the Federal University of Ceará (UFC). Throughout my studies, I explored Human–Computer Interaction (HCI), UX Design, prototyping, information architecture, front-end development, and other disciplines related to digital product design.",
+		"degree": "Digital Design",
+		"professional": "Professional",
+		"professionalText": "More than 5 years of experience designing digital products with a focus on user experience, interfaces, and design systems. I've contributed to projects involving digital accessibility, telecommunications, conversational experiences, and more.",
 		"specialties": [
-			{"icon": "ph:devices", "title": "Product Design", "description": "From problem discovery to implementation, creating digital products centered on user needs and aligned with business goals." }, 
-			{ "icon": "ph:bounding-box", "title": "Design & Development", "description": "Working closely with stakeholders and development teams to turn interfaces into performant digital products."},
-			{ "icon": "ph:circles-three", "title": "Design Systems", "description": "Building components, design tokens, and documentation to ensure consistency and scalability across products and teams." }
+			{
+				"icon": "ph:devices",
+				"title": "Product Design",
+				"description": "From problem discovery to implementation, creating digital products centered on user needs and aligned with business goals."
+			},
+			{
+				"icon": "ph:bounding-box",
+				"title": "Design & Development",
+				"description": "Working closely with stakeholders and development teams to turn interfaces into performant digital products."
+			},
+			{
+				"icon": "ph:circles-three",
+				"title": "Design Systems",
+				"description": "Building components, design tokens, and documentation to ensure consistency and scalability across products and teams."
+			}
 		],
 		"experience": [
 			{
@@ -47,7 +70,7 @@
 		"seeMore": "See More",
 		"notFound": "Case not found.",
 		"blog": "Blog",
-		"summary":"Summary",
+		"summary": "Summary",
 		"share": "Share"
 	},
 	"footer": {
