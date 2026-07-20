@@ -150,7 +150,10 @@
 		@apply text-base-content/85 leading-normal text-pretty subpixel-antialiased;
 	}
 	strong {
-		@apply font-semibold text-base-content subpixel-antialiased;
+		@apply font-medium text-base-content subpixel-antialiased;
+	}
+	em {
+		@apply text-base-content subpixel-antialiased;
 	}
 }
 

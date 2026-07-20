@@ -27,6 +27,11 @@ export default defineNuxtConfig({
 		'@nuxt/fonts',
 		'nuxt-vitalizer'
 	],
+	fonts: {
+		defaults: {
+			weights: ['100 900']
+		},
+	},
 	runtimeConfig: {
 		public: {
 			siteUrl,
