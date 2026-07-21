@@ -41,13 +41,13 @@
 				<NuxtLink to=" /cases" class="btn-secondary">{{ $t('home.seeMore') }}</NuxtLink>
 			</div>
 			<section v-if="cases?.length" class="flex flex-col gap-6 md:grid md:grid-cols-3">
-				<NuxtLink v-for="item in cases" :to="'/cases/' + item.slug.current" class="w-full h-fit md:relative rounded-2xl md:rounded-3xl overflow-clip group outline md:outline-none">
+				<NuxtLink v-for="item in cases" :to="'/cases/' + item.slug.current" class="w-full h-fit md:relative rounded-2xl md:rounded-3xl overflow-clip group" :class="item.border ? 'outline' : ''">
 					<figure class="">
 						<SanityImage :asset-id="item.thumb.asset._ref" quality="100" format="webp" class="w-full h-full object-cover group-hover:scale-102 transition duration-300" />
 					</figure>
 
 					<span class="flex flex-col p-4 md:p-6 bg-base-200 md:bg-black/0 md:bg-linear-180 justify-end md:from-black/0 md:to-black/80 md:absolute md:inset-0 md:opacity-0 group-hover:opacity-100 transition duration-300">
-						<p class="md:text-white">{{ item.title }}</p>
+						<h5 class="md:text-white">{{ item.title }}</h5>
 						<VueTags :list="item.tags" class="[&_p]:md:text-white" />
 					</span>
 				</NuxtLink>
