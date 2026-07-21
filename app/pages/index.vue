@@ -1,4 +1,18 @@
 <script setup>
+	import { squircleDirective as vSquircle } from "@squircle-js/vue";
+	const width = ref(0)
+	const updateWidth = () => {
+		width.value = window.innerWidth
+	}
+	onMounted(() => {
+		updateWidth()
+		window.addEventListener('resize', updateWidth)
+	})
+	onUnmounted(() => {
+		window.removeEventListener('resize', updateWidth)
+	})
+	const radius = computed(() => width.value >= 768 ? 24 : 16)
+
 	const { t } = useI18n()
 	const language = useSanityLanguage()
 	const query = groq`*[_type == "case" && bookmark == true && language == $language]
@@ -38,11 +52,11 @@
 		<section v-if="cases?.length" class="flex flex-col gap-6">
 			<div class="flex justify-between items-center gap-6">
 				<h2 class="mb-1">{{ $t('home.cases') }}</h2>
-				<NuxtLink to=" /cases" class="btn-secondary">{{ $t('home.seeMore') }}</NuxtLink>
+				<NuxtLink to="/cases" class="btn-secondary">{{ $t('home.seeMore') }}</NuxtLink>
 			</div>
 			<section v-if="cases?.length" class="flex flex-col gap-6 md:grid md:grid-cols-3">
-				<NuxtLink v-for="item in cases" :to="'/cases/' + item.slug.current" class="w-full h-fit md:relative rounded-2xl md:rounded-3xl overflow-clip group" :class="item.border ? 'outline' : ''">
-					<figure class="">
+				<NuxtLink v-squircle="{ cornerRadius: radius, cornerSmoothing: 0.8 }" v-for="item in cases" :to="'/cases/' + item.slug.current" class="w-full h-fit md:relative overflow-clip group border border-base-300" :class="item.border ? '' : 'md:border-none'">
+					<figure class="w-full h-full aspect-4/3">
 						<SanityImage :asset-id="item.thumb.asset._ref" quality="100" format="webp" class="w-full h-full object-cover group-hover:scale-102 transition duration-300" />
 					</figure>
 
