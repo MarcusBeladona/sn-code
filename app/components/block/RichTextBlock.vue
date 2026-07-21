@@ -105,6 +105,10 @@
 			@apply prose list-decimal list-inside text-base-content/85;
 		}
 
+		li>strong {
+			@apply font-medium;
+		}
+
 		code {
 			@apply px-1.5 pt-px font-normal rounded-sm bg-base-200 outline text-red-600;
 
