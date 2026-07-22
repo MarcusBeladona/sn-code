@@ -1,9 +1,10 @@
-<script setup lang="ts">
-	import type { NuxtError } from '#app'
+<script setup>
 	import clumsyIllustration from '~/assets/icons/clumsy-opendoodles.svg'
 	import '~/assets/css/main.css'
 
-	defineProps<{ error: NuxtError }>()
+	defineProps({
+		error: { type: Object, required: true },
+	})
 </script>
 
 <template>
