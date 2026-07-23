@@ -1,11 +1,11 @@
 <script setup>
-	const { t, tm, rt } = useI18n()
+	const { tm, rt } = useI18n()
 
 	useSeoMeta({
-		title: () => $t('about.title'),
-		description: () => $t('seo.aboutDescription'),
-		ogTitle: () => $t('about.title'),
-		ogDescription: () => $t('seo.aboutDescription'),
+		title: 'Marcus Beladona Portfolio Site | About Page',
+		description: 'Product Designer | UX/UI Designer | Digital Designer | Portfolio Site',
+		ogTitle: 'Marcus Beladona Portfolio Site | About Page',
+		ogDescription: 'Product Designer | UX/UI Designer | Digital Designer | Portfolio Site',
 	})
 
 	const specialties = computed(() => tm('about.specialties').map((item) => ({

@@ -24,11 +24,11 @@
 	})
 
 	useSeoMeta({
-		title: () => item.value?.title || 'Marcus Beladona',
-		description: () => item.value?.description || 'Case',
-		ogTitle: () => item.value?.title || 'Marcus Beladona',
-		ogDescription: () => item.value?.description || 'Case',
-		ogImage: () => item.value?.ogImage,
+		title: item.value.title || 'Marcus Beladona Portfolio Case',
+		description: item.value.description || 'Product Designer | UX/UI Designer | Portfolio Case',
+		ogTitle: item.value.title || 'Marcus Beladona Portfolio Case',
+		ogDescription: item.value.description || 'Product Designer | UX/UI Designer | Portfolio Case',
+		ogImage: item.value.ogImage,
 	})
 
 	const formattedRelease = computed(() => {
