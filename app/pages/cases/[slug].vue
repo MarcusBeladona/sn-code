@@ -13,16 +13,6 @@
 	}`
 	const { data: item } = await useSanityQuery(query, { slug, language })
 
-	if (!item.value) {
-		throw createError({ statusCode: 404, statusMessage: 'Case not found' })
-	}
-
-	watch(item, (value) => {
-		if (!value) {
-			showError({ statusCode: 404, statusMessage: 'Case not found' })
-		}
-	})
-
 	useSeoMeta({
 		title: item.value.title || 'Marcus Beladona Portfolio Case',
 		description: item.value.description || 'Product Designer | UX/UI Designer | Portfolio Case',
