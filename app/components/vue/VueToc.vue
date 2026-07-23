@@ -29,16 +29,11 @@
 </script>
 
 <template>
-	<VueSquircle v-if="headings.length" class="bg-base-200 p-6 outline">
+	<section v-if="headings.length" class="bg-base-200 p-6 outline rounded-2xl md:rounded-3xl">
 		<ul class="list-none m-0 p-0">
-			<li
-				v-for="el in headings"
-				:key="el.id"
-				:class="el.level == 2 ? 'ml-4 hover:ml-5 text-base-content/60' : 'text-base-content/85'"
-				class="hover:text-base-content hover:ml-1 transition-all mb-0 mt-0 py-1.5 px-0 leading-none"
-			>
+			<li v-for="el in headings" :key="el.id" :class="el.level == 2 ? 'ml-4 hover:ml-5 text-base-content/60' : 'text-base-content/85'" class="hover:text-base-content hover:ml-1 transition-all mb-0 mt-0 py-1.5 px-0 leading-none">
 				<a :href="`#${el.id}`" class="no-underline">{{ el.title }}</a>
 			</li>
 		</ul>
-	</VueSquircle>
+	</section>
 </template>
