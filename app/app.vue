@@ -15,23 +15,6 @@
 				href: () => `${siteUrl}${route.path === '/' ? '' : route.path}`,
 			},
 		],
-		script: [
-			{
-				type: 'application/ld+json',
-				children: JSON.stringify({
-					'@context': 'https://schema.org',
-					'@type': 'Person',
-					name: 'Marcus Beladona',
-					url: siteUrl,
-					jobTitle: 'Product Designer',
-					email: 'mailto:marcusbeladona@gmail.com',
-					sameAs: [
-						'https://github.com/marcusbeladona',
-						'https://www.linkedin.com/in/marcusbeladona/',
-					],
-				}),
-			},
-		],
 	})
 </script>
 

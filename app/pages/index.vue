@@ -6,10 +6,10 @@
 	const { data: cases } = await useSanityQuery(query, { language })
 
 	useSeoMeta({
-		title: () => t('seo.homeTitle'),
-		description: () => t('seo.homeDescription'),
-		ogTitle: () => t('seo.homeTitle'),
-		ogDescription: () => t('seo.homeDescription'),
+		title: () => $t('seo.homeTitle'),
+		description: () => $t('seo.homeDescription'),
+		ogTitle: () => $t('seo.homeTitle'),
+		ogDescription: () => $t('seo.homeDescription'),
 	})
 </script>
 

@@ -31,28 +31,6 @@
 		ogImage: () => item.value?.ogImage,
 	})
 
-	useHead(() => ({
-		script: [
-			{
-				type: 'application/ld+json',
-				children: JSON.stringify({
-					'@context': 'https://schema.org',
-					'@type': 'CreativeWork',
-					name: item.value?.title,
-					description: item.value?.description,
-					image: item.value?.ogImage,
-					url: `${siteUrl}/cases/${slug.value}`,
-					author: {
-						'@type': 'Person',
-						name: 'Marcus Beladona',
-						url: siteUrl,
-					},
-					datePublished: item.value?.release,
-				}),
-			},
-		],
-	}))
-
 	const formattedRelease = computed(() => {
 		const raw = item.value?.release
 		if (!raw) return ''
