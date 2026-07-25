@@ -5,7 +5,7 @@
 	})
 
 	const assetId = computed(() => props.data?.video?.asset?._ref)
-	const borderClass = computed(() => (props.data.border ? 'border border-base-300' : ''))
+	const borderClass = computed(() => (props.data.border ? 'border border-black/12' : ''))
 </script>
 
 <template>
