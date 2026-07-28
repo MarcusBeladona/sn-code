@@ -65,7 +65,7 @@
 		]
 	},
 	"case": {
-		"published": "Published",
+		"published": "Date",
 		"showcase": "See Project",
 		"seeMore": "See More",
 		"notFound": "Case not found.",
