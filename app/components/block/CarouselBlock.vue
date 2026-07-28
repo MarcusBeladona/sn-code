@@ -10,11 +10,7 @@
 <template>
 	<section id="carousel">
 		<Splide :has-track="false" :options="{ rewind: true }" aria-label="Carousel">
-			<SplideTrack
-				v-squircle="squircleOptions"
-				class="overflow-clip"
-				:class="data.border ? 'outline' : ''"
-			>
+			<SplideTrack v-squircle="squircleOptions" class="overflow-clip" :class="data.border ? 'border border-black/12' : ''">
 				<SplideSlide v-for="item in data.images" :key="item._key">
 					<FigureBlock :data="item" :clip="false" />
 				</SplideSlide>
