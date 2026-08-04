@@ -5,9 +5,9 @@
 	const { data: cases } = await useSanityQuery(query, { language })
 
 	useSeoMeta({
-		title: 'Marcus Beladona Portfolio Site',
+		title: 'Marcus Beladona',
 		description: 'Product Designer | UX/UI Designer | Digital Designer | Portfolio Site',
-		ogTitle: 'Marcus Beladona Portfolio Site',
+		ogTitle: 'Marcus Beladona',
 		ogDescription: 'Product Designer | UX/UI Designer | Digital Designer | Portfolio Site',
 	})
 </script>

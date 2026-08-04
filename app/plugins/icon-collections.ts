@@ -1,7 +1,7 @@
 import { defineNuxtPlugin } from '#app'
 import { addCollection } from '@iconify/vue'
-import phData from '@iconify-json/ph/icons.json'
+import { icons as phIcons } from '@iconify-json/ph'
 
 export default defineNuxtPlugin(() => {
-	addCollection(phData)
+	addCollection(phIcons as any)
 })

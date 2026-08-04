@@ -2,9 +2,9 @@
 	const { tm, rt } = useI18n()
 
 	useSeoMeta({
-		title: 'Marcus Beladona Portfolio Site | About Page',
+		title: 'Marcus Beladona | About',
 		description: 'Product Designer | UX/UI Designer | Digital Designer | Portfolio Site',
-		ogTitle: 'Marcus Beladona Portfolio Site | About Page',
+		ogTitle: 'Marcus Beladona | About',
 		ogDescription: 'Product Designer | UX/UI Designer | Digital Designer | Portfolio Site',
 	})
 
