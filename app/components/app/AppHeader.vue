@@ -1,10 +1,8 @@
 <script setup>
-	import { squircleDirective as vSquircle } from '@squircle-js/vue'
-
+	
 	const { locale, setLocale } = useI18n()
 	const locales = ['pt-BR', 'en-US']
-	const { squircleOptions } = useSquircleRadius()
-
+	
 	const scrollToContact = () => {
 		document.getElementById('contact')?.scrollIntoView({
 			behavior: 'smooth',
@@ -28,7 +26,6 @@
 					<Icon name="ph:globe" />
 				</div>
 				<ul
-					v-squircle="squircleOptions"
 					tabindex="-1"
 					class="dropdown-content menu z-1 mt-2 p-4 gap-2 bg-white outline overflow-clip"
 				>
@@ -51,7 +48,6 @@
 					<Icon name="ph:list" />
 				</div>
 				<ul
-					v-squircle="squircleOptions"
 					tabindex="1"
 					class="dropdown-content menu z-1 mt-2 gap-2 justify-center items-center p-4 bg-white outline overflow-clip"
 				>

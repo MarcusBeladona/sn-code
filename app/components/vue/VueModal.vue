@@ -1,52 +1,54 @@
 <script setup>
 	const props = defineProps({
-		/** Wrap preview (default slot) with VueSquircle */
-		clip: { type: Boolean, default: true },
-		/** Wrap modal content with VueSquircle; falls back to `clip` when unset */
-		clipModal: { type: Boolean, default: undefined },
-		cornerRadius: { type: Number, default: undefined },
-		cornerSmoothing: { type: Number, default: 0.8 },
-		/** Classes on the preview squircle / wrapper */
-		squircleClass: { type: [String, Object, Array], default: undefined },
-		/** Classes on the modal squircle / wrapper */
-		modalSquircleClass: { type: [String, Object, Array], default: undefined },
+		data: { type: Object, required: true },
+		rounded: { type: Boolean, default: true },
 	})
 
 	const dialog = ref(null)
-
-	const useClipModal = computed(() => props.clipModal ?? props.clip)
-
 	function open() {
 		dialog.value?.showModal()
 	}
-
 	function close() {
 		dialog.value?.close()
 	}
+
+	const assetId = computed(() => props.data?.image?.asset?._ref || props.data?.video?.asset?._ref)
+
+	const classes = computed(() => {
+		const border = props.data?.border ? 'edge' : 'border-none'
+		const rounded = props.rounded ? 'squircle' : 'rounded-none'
+		return `${border} ${rounded}`
+	})
+
+	const borderClass = computed(() => props.data?.border ? 'edge' : 'border-none')
 </script>
 
 <template>
-	<!-- Preview: click to open -->
+	<!-- Preview -->
 	<div class="contents cursor-pointer" @click="open">
-		<VueSquircle v-if="clip" :corner-radius="cornerRadius" :corner-smoothing="cornerSmoothing" :class="squircleClass">
-			<slot />
-		</VueSquircle>
-		<slot v-else />
+		<SanityImage v-if="data.image" :asset-id="assetId" quality="100" format="webp" :alt="data?.caption || 'image'" class="w-full h-full object-contain squircle" :class="classes" />
+
+		<SanityFile v-else-if="data.video" :asset-id="assetId">
+			<template #default="{ src }">
+				<video autoplay loop muted preload="metadata" :alt="data.caption || 'video'" class="w-full h-full object-contain squircle" :class="classes">
+					<source :src="src" />
+				</video>
+			</template>
+		</SanityFile>
 	</div>
 
-	<!-- Overlay -->
+	<!-- Modal -->
 	<dialog ref="dialog" class="modal outline-none">
-		<div class="modal-box bg-transparent flex items-center justify-center w-full h-full max-w-screen max-h-screen rounded-none p-6" @click="close">
-			<VueSquircle v-if="useClipModal" :corner-radius="cornerRadius" :corner-smoothing="cornerSmoothing" :class="modalSquircleClass ?? 'w-full h-full'">
-				<slot name="modal">
-					<slot />
-				</slot>
-			</VueSquircle>
-			<template v-else>
-				<slot name="modal">
-					<slot />
-				</slot>
-			</template>
+		<div class="modal-box bg-transparent flex items-center justify-center w-full h-full max-w-screen max-h-screen p-6 rounded-none" @click="close">
+			<SanityImage v-if="data.image" :asset-id="assetId" quality="100" format="webp" :alt="data?.caption || 'image'" class="w-full h-fit max-h-full max-w-full object-contain rounded-none border-none" :class="borderClass" />
+
+			<SanityFile v-else-if="data.video" :asset-id="assetId">
+				<template #default="{ src }">
+					<video autoplay loop controls muted preload="metadata" :alt="data.caption || 'video'" class="w-fit h-fit max-h-full max-w-full object-contain rounded-none border-none" :class="borderClass">
+						<source :src="src" />
+					</video>
+				</template>
+			</SanityFile>
 		</div>
 	</dialog>
 </template>

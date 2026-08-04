@@ -111,10 +111,11 @@
 }
 
 @layer base {
+
 	#__nuxt {
 		@apply max-w-332 items-center flex px-6 flex-col gap-24 lg:gap-36 mx-auto antialiased;
 	}
-	section, 	main {
+	section, main {
 		@apply animate-enter;
 	}
 	html {
@@ -159,19 +160,14 @@
 	.iconify {
 		font-size: 1.25em;
 	}
-
-	.outline {
-		@apply outline outline-base-300;
-	}
 }
 
 @utility autohide {
 	@apply hover:opacity-100 transition-opacity duration-300;
 }
 @utility edge {
-	@apply bg-base-200 outline outline-base-300 rounded-box;
+	@apply border border-base-content/8;
 }
-
 @utility btn {
 	@apply rounded-full font-normal text-body min-w-10 min-h-10 px-4 w-fit;
 }
@@ -179,18 +175,24 @@
 	@apply btn hover:bg-white hover:text-base-content hover:border-base-300;
 }
 @utility btn-secondary {
-	@apply btn border border-base-300 hover:bg-base-200;
+	@apply btn edge hover:bg-base-200;
 }
 @utility btn-link {
 	@apply btn no-underline bg-none text-base-content/70 hover:text-base-content;
 }
-
 @utility badge {
 	@apply badge-xl text-caption text-base-content/70 bg-white border-base-300;
 }
-
 @utility text-hero {
 	font-size: 1.4375rem;
 	font-size: clamp(1.4375rem, -0.2875000000000001rem + 5.75vw, 4.3125rem);
 }
+@utility squircle {
+    border-radius: var(--radius-2xl);
+    corner-shape: superellipse(1.2);
+	overflow: hidden;
 
+    @variant md {
+        border-radius: var(--radius-3xl);
+    }
+}

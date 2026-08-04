@@ -1,18 +1,19 @@
 <script setup>
 	import { Splide, SplideSlide, SplideTrack } from '@splidejs/vue-splide'
-	import { squircleDirective as vSquircle } from '@squircle-js/vue'
 	import '@splidejs/vue-splide/css'
 
-	const props = defineProps({ data: Object })
-	const { squircleOptions } = useSquircleRadius()
+	const props = defineProps({ data: { type: Object, required: true } })
+
+	const widthClass = computed(() => (props.data.fullWidth ? 'w-full' : 'w-178'))
+	const borderClass = computed(() => (props.data?.border ? 'edge' : 'border-none'))
 </script>
 
 <template>
-	<section id="carousel">
+	<section id="carousel" :class="widthClass">
 		<Splide :has-track="false" :options="{ rewind: true }" aria-label="Carousel">
-			<SplideTrack v-squircle="squircleOptions" class="overflow-clip" :class="data.border ? 'border border-black/12' : ''">
+			<SplideTrack class="squircle" :class="borderClass">
 				<SplideSlide v-for="item in data.images" :key="item._key">
-					<FigureBlock :data="item" :clip="false" />
+					<VueModal :data="item" :rounded="false" />
 				</SplideSlide>
 			</SplideTrack>
 			<ul class="splide__pagination"></ul>

@@ -34,9 +34,9 @@
 					<p>{{ $t('about.bio1') }}</p>
 					<p>{{ $t('about.bio2') }}</p>
 				</span>
-				<VueSquircle class="col-start-7 col-span-6">
-					<NuxtImg src="img/cover-img.png" class="object-contain w-full" />
-				</VueSquircle>
+				<div class="col-start-7 col-span-6">
+					<NuxtImg src="img/cover-img.png" class="object-contain w-full squircle" />
+				</div>
 			</section>
 		</section>
 		<section class="w-full">
@@ -52,12 +52,12 @@
 			<section class="flex flex-col lg:grid grid-cols-12 gap-6">
 				<p class="col-span-5 text-balance">{{ $t('about.academicText') }}</p>
 				<div class="col-start-7 col-span-6 relative">
-					<VueSquircle class="w-full">
-						<NuxtImg src="img/study-img.png" class="w-full" />
-					</VueSquircle>
+					<div class="w-full">
+						<NuxtImg src="img/study-img.png" class="object-contain w-full squircle" />
+					</div>
 					<span class="flex w-full justify-between items-end absolute p-6 left-0 bottom-0">
 						<span class="flex flex-col md:flex-row gap-6 md:items-end">
-							<NuxtImg src="img/ufc-logo.jpg" class="w-12 h-12 rounded-xl" />
+							<NuxtImg src="img/ufc-logo.jpg" class="w-12 h-12 rounded-full" />
 							<span class="flex flex-col">
 								<h5 class="text-white">UFC</h5>
 								<p class="text-white">{{ $t('about.degree') }}</p>
@@ -78,7 +78,7 @@
 				<section class="col-start-7 col-span-6 flex flex-col gap-6 divide-y divide-dashed divide-base-300">
 					<span v-for="job in experience" :key="`${job.company}-${job.period}`" class="flex  justify-between items-end pb-6 last:pb-0">
 						<span class="flex flex-col md:flex-row gap-6">
-							<NuxtImg :src="job.logo" class="w-12 h-12 rounded-xl" />
+							<NuxtImg :src="job.logo" class="w-12 h-12 rounded-full" />
 							<span class="flex flex-col">
 								<h5>{{ job.company }}</h5>
 								<p>{{ job.role }}</p>
