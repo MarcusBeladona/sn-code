@@ -27,6 +27,13 @@ export default defineNuxtConfig({
 		'@nuxt/fonts',
 		'nuxt-vitalizer'
 	],
+	icon: {
+		mode: 'css',
+		cssLayer: 'base',
+		serverBundle: {
+			collections: ['ph']
+		}
+	},
 	fonts: {
 		defaults: {
 			weights: [300, 400, 500, 600, 700]
@@ -52,7 +59,7 @@ export default defineNuxtConfig({
 			alwaysRedirect: false,
 		},
 	},
-	css: ['./app/assets/css/main.css'],
+	css: ['~/assets/css/main.css'],
 	vite: {
 		plugins: [
 			tailwindcss()
