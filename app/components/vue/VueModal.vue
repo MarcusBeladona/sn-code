@@ -26,7 +26,7 @@
 <template>
 	<!-- Preview -->
 	<div class="contents cursor-pointer" @click="open">
-		<SanityImage v-if="data.image" :asset-id="assetId" quality="100" format="webp" :alt="data?.caption || 'image'" class="w-full h-full object-contain squircle" :class="classes" />
+		<SanityImage v-if="data.image" :asset-id="assetId" quality="100" format="webp" :alt="data?.caption || 'image'" class="w-full h-auto squircle" :class="classes" />
 
 		<SanityFile v-else-if="data.video" :asset-id="assetId">
 			<template #default="{ src }">

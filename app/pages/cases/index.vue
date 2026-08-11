@@ -18,7 +18,7 @@
 			<hr class="pb-3 border-dashed w-full text-base-content/12">
 		</section>
 
-		<section v-if="cases?.length" class="flex flex-col gap-6 md:grid md:grid-cols-3">
+		<section v-if="cases?.length" class="flex flex-col gap-6 md:grid md:grid-cols-2">
 			<VueCard v-for="item in cases" :key="item._id" :item="item" />
 		</section>
 	</main>

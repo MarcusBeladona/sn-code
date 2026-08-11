@@ -5,9 +5,9 @@
 	const { data: cases } = await useSanityQuery(query, { language })
 
 	useSeoMeta({
-		title: 'Marcus Beladona',
+		title: 'Marcus Beladona | Portfolio',
 		description: 'Product Designer | UX/UI Designer | Digital Designer | Portfolio Site',
-		ogTitle: 'Marcus Beladona',
+		ogTitle: 'Marcus Beladona | Portfolio',
 		ogDescription: 'Product Designer | UX/UI Designer | Digital Designer | Portfolio Site',
 	})
 </script>
@@ -39,7 +39,7 @@
 				<h2 class="mb-1">{{ $t('home.cases') }}</h2>
 				<NuxtLink to="/cases" class="btn-secondary">{{ $t('home.seeMore') }}</NuxtLink>
 			</div>
-			<section class="flex flex-col gap-6 md:grid md:grid-cols-3">
+			<section class="flex flex-col gap-6 md:grid md:grid-cols-2">
 				<VueCard v-for="item in cases" :key="item._id" :item="item" />
 			</section>
 		</section>
