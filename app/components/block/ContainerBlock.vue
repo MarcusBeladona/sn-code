@@ -3,7 +3,7 @@
 </script>
 
 <template>
-	<span id="container" class="flex flex-col bg-base-200 outline" :class="data.fullWidth ? 'w-full' : 'w-178'">
+	<span id="container" class="flex flex-col bg-base-200 outline" :class="data.wide ? 'w-full' : 'w-178'">
 		<span class="flex gap-1 px-4 py-3">
 			<Icon name="ph:circle-fill" size="16" class="text-[#FF605C]" />
 			<Icon name="ph:circle-fill" size="16" class="text-[#FFBD44]" />

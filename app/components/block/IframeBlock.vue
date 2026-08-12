@@ -2,7 +2,7 @@
 	const props = defineProps({
 		data: { type: Object, required: true },
 	})
-	const widthClass = computed(() => (props.data.fullWidth ? 'w-full' : 'w-178'))
+	const widthClass = computed(() => (props.data.wide ? 'w-full' : 'w-178'))
 	const borderClass = computed(() => (props.data?.border ? 'edge' : ''))
 </script>
 
